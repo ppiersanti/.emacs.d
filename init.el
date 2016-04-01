@@ -19,7 +19,7 @@
 (defvar --backup-directory (concat user-emacs-directory "backups"))
 (setq backup-directory-alist `((".*" . , --backup-directory)))
 (setq auto-save-file-name-transforms
-          `((".*" , --backup-directory t)))
+      `((".*" , --backup-directory t)))
 (setq make-backup-files t               ; backup of a file the first time it is saved.
       backup-by-copying t               ; don't clobber symlinks
       version-control t                 ; version numbers for backup files
@@ -72,7 +72,7 @@
 
 (setq package-archives
       '(("gnu" . "http://elpa.gnu.org/packages/")
-;;        ("melpa-stable" . "https://stable.melpa.org/packages/")
+	;;        ("melpa-stable" . "https://stable.melpa.org/packages/")
         ("melpa" . "https://melpa.org/packages/")))
 (package-initialize) ;; You might already have this line
 
@@ -153,10 +153,10 @@
 (require 'cider-eval-sexp-fu)
 
 (defun my-clojure-mode-hook ()
-    (clj-refactor-mode 1)
-    (yas-minor-mode 1) ; for adding require/use/import statements
-    ;; This choice of keybinding leaves cider-macroexpand-1 unbound
-    (cljr-add-keybindings-with-prefix "C-c C-m"))
+  (clj-refactor-mode 1)
+  (yas-minor-mode 1) ; for adding require/use/import statements
+  ;; This choice of keybinding leaves cider-macroexpand-1 unbound
+  (cljr-add-keybindings-with-prefix "C-c C-m"))
 
 (defun compile-and-run-main ()
   (cider-load-buffer)
@@ -168,9 +168,8 @@
 (add-hook 'cider-mode-hook
 	  '(lambda () (add-hook 'after-save-hook
 				'(lambda ()
-				   ;;(if (and (boundp 'cider-mode) cider-mode)
-				   (cider-namespace-refresh)
-				   ))));;)
+				   (if (and (boundp 'cider-mode) cider-mode)
+				       (cider-namespace-refresh))))))
 
 (defun cider-namespace-refresh ()
   (interactive)
@@ -182,7 +181,7 @@
 
 
 (autoload 'markdown-mode "markdown-mode"
-   "Major mode for editing Markdown files" t)
+  "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
