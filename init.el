@@ -131,13 +131,16 @@
 (global-set-key (kbd "C-d") 'duplicate-line)
 
 
-;; 
+;;
+(require 'paxedit)
 (require 'icomplete)
 (global-company-mode)
 (global-git-gutter-mode +1)
 
 (add-hook 'clojure-mode-hook #'paredit-mode)
+(add-hook 'clojure-mode-hook #'paxedit-mode)
 (add-hook 'cider-repl-mode-hook #'paredit-mode)
+(add-hook 'cider-repl-mode-hook #'paxedit-mode)
 (add-hook 'cider-repl-mode-hook #'subword-mode)
 ;;(add-hook 'cider-repl-mode-hook #'rainbow-delimiters-mode)  ;; does not work
 (global-set-key (kbd "TAB") #'company-indent-or-complete-common)
