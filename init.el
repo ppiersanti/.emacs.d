@@ -64,6 +64,12 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ansi-color-faces-vector
+   [default default default italic underline success warning error])
+ '(ansi-color-names-vector
+   ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
+ '(cua-mode t nil (cua-base))
+ '(custom-enabled-themes (quote (deeper-blue)))
  '(inhibit-startup-screen t))
 
 
@@ -130,7 +136,7 @@
 
 (global-set-key (kbd "C-d") 'duplicate-line)
 
-
+   
 ;;
 (require 'paxedit)
 (require 'icomplete)
@@ -139,6 +145,8 @@
 
 (add-hook 'clojure-mode-hook #'paredit-mode)
 (add-hook 'clojure-mode-hook #'paxedit-mode)
+(add-hook 'clojure-mode-hook #'aggressive-indent-mode)
+(add-hook 'clojure-mode-hook #'subword-mode)
 (add-hook 'cider-repl-mode-hook #'paredit-mode)
 (add-hook 'cider-repl-mode-hook #'paxedit-mode)
 (add-hook 'cider-repl-mode-hook #'subword-mode)
@@ -146,9 +154,12 @@
 (global-set-key (kbd "TAB") #'company-indent-or-complete-common)
 (setq cider-overlays-use-font-lock t)
 (setq cider-font-lock-dynamically '(macro core function var))
+(setq clojure-align-forms-automatically t)
 (setq cider-prompt-save-file-on-load 'always-save)
 (add-hook 'cider-mode-hook #'eldoc-mode)
 (setq cider-test-show-report-on-success t)
+
+(require 'clojure-mode-extra-font-locking)
 
 (require 'clj-refactor)
 (setq cljr-warn-on-eval nil)
@@ -210,3 +221,9 @@
 ;; (add-hook 'auto-complete-mode-hook 'set-auto-complete-as-completion-at-point-function)
 ;; (add-hook 'cider-mode-hook 'set-auto-complete-as-completion-at-point-function)
 
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
