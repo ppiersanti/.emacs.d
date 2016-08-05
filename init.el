@@ -51,18 +51,27 @@
 ;; map org file to org-mode
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 
-;(setq visible-bell t)
+					;(setq visible-bell t)
 (setq ring-bell-function
-  (lambda ()
-    (unless (memq this-command
-          '(isearch-abort abort-recursive-edit
-                  exit-minibuffer keyboard-quit))
-      (invert-face 'mode-line)
-      (run-with-timer 0.1 nil 'invert-face 'mode-line))))
+      (lambda ()
+	(unless (memq this-command
+		      '(isearch-abort abort-recursive-edit
+				      exit-minibuffer keyboard-quit))
+	  (invert-face 'mode-line)
+	  (run-with-timer 0.1 nil 'invert-face 'mode-line))))
 
 (display-time)
 
-(setq auto-save-timeout 300)
+;; (defun save-buffer-if-visiting-file (&optional args)
+;;   "Save the current buffer only if it is visiting a file"
+;;   (interactive)
+;;   (if (and (buffer-file-name) (buffer-modified-p))
+;;       (save-buffer args)))
+
+;; (add-hook 'auto-save-hook 'save-buffer-if-visiting-file)
+
+;; (setq auto-save-interval 1
+;;       auto-save-timeout 1)
 
 (show-paren-mode)
 
@@ -75,6 +84,7 @@
    [default default default italic underline success warning error])
  '(ansi-color-names-vector
    ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
+ '(cider-repl-use-pretty-printing t)
  '(cua-mode t nil (cua-base))
  '(custom-enabled-themes (quote (deeper-blue)))
  '(inhibit-startup-screen t))
@@ -143,12 +153,14 @@
 
 (global-set-key (kbd "C-d") 'duplicate-line)
 
-   
+
 ;;
 (require 'paxedit)
 (require 'icomplete)
 (global-company-mode)
 (global-git-gutter-mode +1)
+(global-hl-line-mode)
+
 
 (add-hook 'clojure-mode-hook #'paredit-mode)
 (add-hook 'clojure-mode-hook #'paxedit-mode)
@@ -167,6 +179,13 @@
 (setq cider-test-show-report-on-success t)
 
 (require 'clojure-mode-extra-font-locking)
+
+;; highlight words
+(require 'auto-highlight-symbol)
+(global-auto-highlight-symbol-mode t)
+
+;; undo tree
+(global-undo-tree-mode t)
 
 (require 'clj-refactor)
 (setq cljr-warn-on-eval nil)
