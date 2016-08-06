@@ -38,8 +38,6 @@
 (setq initial-frame-alist '((tool-bar-lines . 0)))
 (toggle-scroll-bar -1)
 
-
-
 (add-to-list 'load-path "~/.emacs.d/site-lisp")
 (autoload 'adoc-mode "adoc-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.adoc$" . adoc-mode))
@@ -157,18 +155,12 @@
 ;;
 (require 'paxedit)
 
-;;(require 'icomplete)
-(ido-mode 1)
 (setq ido-enable-flex-matching t)
-(setq ido-everywhere t)
+(ido-mode 1)
+(ido-everywhere t)
 
 (require 'ido-ubiquitous)
 (ido-ubiquitous-mode 1)
-
-(icomplete-mode 1)
-
-(require 'smex)
-
 
 (global-company-mode)
 (global-git-gutter-mode +1)
@@ -254,3 +246,8 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+
+;;; Smex
+(autoload 'smex "smex")
+(global-set-key (kbd "M-x") 'smex)
