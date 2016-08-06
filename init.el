@@ -51,18 +51,27 @@
 ;; map org file to org-mode
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 
-;(setq visible-bell t)
+					;(setq visible-bell t)
 (setq ring-bell-function
-  (lambda ()
-    (unless (memq this-command
-          '(isearch-abort abort-recursive-edit
-                  exit-minibuffer keyboard-quit))
-      (invert-face 'mode-line)
-      (run-with-timer 0.1 nil 'invert-face 'mode-line))))
+      (lambda ()
+	(unless (memq this-command
+		      '(isearch-abort abort-recursive-edit
+				      exit-minibuffer keyboard-quit))
+	  (invert-face 'mode-line)
+	  (run-with-timer 0.1 nil 'invert-face 'mode-line))))
 
 (display-time)
 
-(setq auto-save-timeout 300)
+;; (defun save-buffer-if-visiting-file (&optional args)
+;;   "Save the current buffer only if it is visiting a file"
+;;   (interactive)
+;;   (if (and (buffer-file-name) (buffer-modified-p))
+;;       (save-buffer args)))
+
+;; (add-hook 'auto-save-hook 'save-buffer-if-visiting-file)
+
+;; (setq auto-save-interval 1
+;;       auto-save-timeout 1)
 
 (show-paren-mode)
 
@@ -72,35 +81,13 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(ansi-color-faces-vector
-   [default bold shadow italic underline bold bold-italic bold])
- '(custom-enabled-themes (quote (tango-dark)))
- '(custom-safe-themes
-   (quote
-    ("28ec8ccf6190f6a73812df9bc91df54ce1d6132f18b4c8fcc85d45298569eb53" default)))
- '(fci-rule-color "#14151E")
- '(inhibit-startup-screen t)
- '(vc-annotate-background nil)
- '(vc-annotate-color-map
-   (quote
-    ((20 . "#d54e53")
-     (40 . "goldenrod")
-     (60 . "#e7c547")
-     (80 . "DarkOliveGreen3")
-     (100 . "#70c0b1")
-     (120 . "DeepSkyBlue1")
-     (140 . "#c397d8")
-     (160 . "#d54e53")
-     (180 . "goldenrod")
-     (200 . "#e7c547")
-     (220 . "DarkOliveGreen3")
-     (240 . "#70c0b1")
-     (260 . "DeepSkyBlue1")
-     (280 . "#c397d8")
-     (300 . "#d54e53")
-     (320 . "goldenrod")
-     (340 . "#e7c547")
-     (360 . "DarkOliveGreen3"))))
- '(vc-annotate-very-old-color nil))
+   [default default default italic underline success warning error])
+ '(ansi-color-names-vector
+   ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
+ '(cider-repl-use-pretty-printing t)
+ '(cua-mode t nil (cua-base))
+ '(custom-enabled-themes (quote (deeper-blue)))
+ '(inhibit-startup-screen t))
 
 
 
@@ -172,9 +159,13 @@
 (require 'icomplete)
 (global-company-mode)
 (global-git-gutter-mode +1)
+(global-hl-line-mode)
+
 
 (add-hook 'clojure-mode-hook #'paredit-mode)
 (add-hook 'clojure-mode-hook #'paxedit-mode)
+(add-hook 'clojure-mode-hook #'aggressive-indent-mode)
+(add-hook 'clojure-mode-hook #'subword-mode)
 (add-hook 'cider-repl-mode-hook #'paredit-mode)
 (add-hook 'cider-repl-mode-hook #'paxedit-mode)
 (add-hook 'cider-repl-mode-hook #'subword-mode)
@@ -182,9 +173,19 @@
 (global-set-key (kbd "TAB") #'company-indent-or-complete-common)
 (setq cider-overlays-use-font-lock t)
 (setq cider-font-lock-dynamically '(macro core function var))
+(setq clojure-align-forms-automatically t)
 (setq cider-prompt-save-file-on-load 'always-save)
 (add-hook 'cider-mode-hook #'eldoc-mode)
 (setq cider-test-show-report-on-success t)
+
+(require 'clojure-mode-extra-font-locking)
+
+;; highlight words
+(require 'auto-highlight-symbol)
+(global-auto-highlight-symbol-mode t)
+
+;; undo tree
+(global-undo-tree-mode t)
 
 (require 'clj-refactor)
 (setq cljr-warn-on-eval nil)
