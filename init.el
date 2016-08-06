@@ -169,6 +169,7 @@
 (add-hook 'cider-repl-mode-hook #'paredit-mode)
 (add-hook 'cider-repl-mode-hook #'paxedit-mode)
 (add-hook 'cider-repl-mode-hook #'subword-mode)
+(add-hook 'cider-repl-mode-hook #'eldoc-mode)
 ;;(add-hook 'cider-repl-mode-hook #'rainbow-delimiters-mode)  ;; does not work
 (global-set-key (kbd "TAB") #'company-indent-or-complete-common)
 (setq cider-overlays-use-font-lock t)
