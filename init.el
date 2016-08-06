@@ -179,6 +179,7 @@
 (add-hook 'cider-mode-hook #'eldoc-mode)
 (setq cider-test-show-report-on-success t)
 (setq cider-repl-history-file "~/.emacs.d/cider-nrepl.history")
+(setq cider-prompt-for-symbol nil)
 
 (require 'clojure-mode-extra-font-locking)
 
