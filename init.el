@@ -71,7 +71,36 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(inhibit-startup-screen t))
+ '(ansi-color-faces-vector
+   [default bold shadow italic underline bold bold-italic bold])
+ '(custom-enabled-themes (quote (tango-dark)))
+ '(custom-safe-themes
+   (quote
+    ("28ec8ccf6190f6a73812df9bc91df54ce1d6132f18b4c8fcc85d45298569eb53" default)))
+ '(fci-rule-color "#14151E")
+ '(inhibit-startup-screen t)
+ '(vc-annotate-background nil)
+ '(vc-annotate-color-map
+   (quote
+    ((20 . "#d54e53")
+     (40 . "goldenrod")
+     (60 . "#e7c547")
+     (80 . "DarkOliveGreen3")
+     (100 . "#70c0b1")
+     (120 . "DeepSkyBlue1")
+     (140 . "#c397d8")
+     (160 . "#d54e53")
+     (180 . "goldenrod")
+     (200 . "#e7c547")
+     (220 . "DarkOliveGreen3")
+     (240 . "#70c0b1")
+     (260 . "DeepSkyBlue1")
+     (280 . "#c397d8")
+     (300 . "#d54e53")
+     (320 . "goldenrod")
+     (340 . "#e7c547")
+     (360 . "DarkOliveGreen3"))))
+ '(vc-annotate-very-old-color nil))
 
 
 
@@ -173,7 +202,7 @@
   (cider-run))
 
 (add-hook 'clojure-mode-hook #'my-clojure-mode-hook)
-(global-set-key (quote [F5]) #'compile-and-run-main)
+(global-set-key (quote [F5]) 'cider-run)
 
 (add-hook 'cider-mode-hook
 	  '(lambda () (add-hook 'after-save-hook
@@ -217,3 +246,9 @@
 ;; (add-hook 'auto-complete-mode-hook 'set-auto-complete-as-completion-at-point-function)
 ;; (add-hook 'cider-mode-hook 'set-auto-complete-as-completion-at-point-function)
 
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
