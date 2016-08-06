@@ -156,7 +156,20 @@
 
 ;;
 (require 'paxedit)
-(require 'icomplete)
+
+;;(require 'icomplete)
+(ido-mode 1)
+(setq ido-enable-flex-matching t)
+(setq ido-everywhere t)
+
+(require 'ido-ubiquitous)
+(ido-ubiquitous-mode 1)
+
+(icomplete-mode 1)
+
+(require 'smex)
+
+
 (global-company-mode)
 (global-git-gutter-mode +1)
 (global-hl-line-mode)
