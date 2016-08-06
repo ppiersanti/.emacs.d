@@ -178,6 +178,7 @@
 (setq cider-prompt-save-file-on-load 'always-save)
 (add-hook 'cider-mode-hook #'eldoc-mode)
 (setq cider-test-show-report-on-success t)
+(setq cider-repl-history-file "~/.emacs.d/cider-nrepl.history")
 
 (require 'clojure-mode-extra-font-locking)
 
