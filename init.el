@@ -85,7 +85,33 @@
  '(cider-repl-use-pretty-printing t)
  '(cua-mode t nil (cua-base))
  '(custom-enabled-themes (quote (deeper-blue)))
- '(inhibit-startup-screen t))
+ '(custom-safe-themes
+   (quote
+    ("28ec8ccf6190f6a73812df9bc91df54ce1d6132f18b4c8fcc85d45298569eb53" default)))
+ '(fci-rule-color "#14151E")
+ '(inhibit-startup-screen t)
+ '(vc-annotate-background nil)
+ '(vc-annotate-color-map
+   (quote
+    ((20 . "#d54e53")
+     (40 . "goldenrod")
+     (60 . "#e7c547")
+     (80 . "DarkOliveGreen3")
+     (100 . "#70c0b1")
+     (120 . "DeepSkyBlue1")
+     (140 . "#c397d8")
+     (160 . "#d54e53")
+     (180 . "goldenrod")
+     (200 . "#e7c547")
+     (220 . "DarkOliveGreen3")
+     (240 . "#70c0b1")
+     (260 . "DeepSkyBlue1")
+     (280 . "#c397d8")
+     (300 . "#d54e53")
+     (320 . "goldenrod")
+     (340 . "#e7c547")
+     (360 . "DarkOliveGreen3"))))
+ '(vc-annotate-very-old-color nil))
 
 
 
@@ -151,6 +177,14 @@
 
 (global-set-key (kbd "C-d") 'duplicate-line)
 
+;;; CIDER stuff
+
+;; cider cljs nRepl conf 
+(require 'cider)
+(setq cider-cljs-lein-repl
+      "(do (require 'figwheel-sidecar.repl-api)
+           (figwheel-sidecar.repl-api/start-figwheel!)
+           (figwheel-sidecar.repl-api/cljs-repl))")
 
 ;;
 (require 'paxedit)
@@ -217,15 +251,15 @@
 	  '(lambda () (add-hook 'after-save-hook
 				'(lambda ()
 				   (if (and (boundp 'cider-mode) cider-mode)
-				       (cider-namespace-refresh))))))
+				       (cider-refresh))))))
 
-(defun cider-namespace-refresh ()
-  (interactive)
-  (cider-interactive-eval
-   "(require 'clojure.tools.namespace.repl)
-  (clojure.tools.namespace.repl/refresh)"))
+;; (defun cider-namespace-refresh ()
+;;   (interactive)
+;;   (cider-interactive-eval
+;;    "(require 'clojure.tools.namespace.repl)
+  ;; (clojure.tools.namespace.repl/refresh)"))
 
-(define-key clojure-mode-map (kbd "C-c C-r") 'cider-namespace-refresh)
+(define-key clojure-mode-map (kbd "C-c C-r") 'cider-refresh)
 
 
 (autoload 'markdown-mode "markdown-mode"
@@ -234,10 +268,6 @@
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
-
-
-					;(add-hook 'cider-repl-mode-hook #'smartparens-strict-mode)
-					;(add-hook 'clojure-mode-hook #'smartparens-strict-mode)
 
 
 (custom-set-faces
