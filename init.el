@@ -199,7 +199,6 @@
 
 (global-company-mode)
 (global-git-gutter-mode +1)
-(global-hl-line-mode)
 
 
 (add-hook 'clojure-mode-hook #'paredit-mode)
@@ -226,6 +225,7 @@
 ;; highlight words
 (require 'auto-highlight-symbol)
 (global-auto-highlight-symbol-mode t)
+(global-hl-line-mode)
 
 ;; undo tree
 (global-undo-tree-mode t)
