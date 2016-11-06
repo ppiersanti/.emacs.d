@@ -233,7 +233,8 @@
 (require 'clj-refactor)
 (setq cljr-warn-on-eval nil)
 
-(require 'cider-eval-sexp-fu)
+;; disable the broken below package
+;;(require 'cider-eval-sexp-fu)
 
 (defun my-clojure-mode-hook ()
   (clj-refactor-mode 1)
