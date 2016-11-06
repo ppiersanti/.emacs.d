@@ -282,4 +282,4 @@
 
 ;;; Smex
 (autoload 'smex "smex")
-(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "<M-x S>") 'smex)
