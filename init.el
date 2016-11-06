@@ -175,6 +175,7 @@
   ;; put the point in the lowest line and return
   (next-line arg))
 
+(global-set-key (kbd "C-d") nil)
 (global-set-key (kbd "C-d") 'duplicate-line)
 
 ;;; CIDER stuff
