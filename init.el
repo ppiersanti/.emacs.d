@@ -41,10 +41,10 @@
 (add-to-list 'load-path "~/.emacs.d/site-lisp")
 (autoload 'adoc-mode "adoc-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.adoc$" . adoc-mode))
-(add-hook 'adoc-mode-hook
-          '(lambda ()
-             (turn-on-auto-fill)
-             (require 'asciidoc)))
+;;(add-hook 'adoc-mode-hook
+;;          '(lambda ()
+;;             (turn-on-auto-fill)
+;;             (require 'asciidoc)))
 
 ;; map org file to org-mode
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
@@ -85,7 +85,10 @@
  '(cider-repl-use-pretty-printing t)
  '(cua-mode t nil (cua-base))
  '(custom-enabled-themes (quote (deeper-blue)))
- '(inhibit-startup-screen t))
+ '(inhibit-startup-screen t)
+ '(package-selected-packages
+   (quote
+    (undo-tree smex projectile paxedit markdown-mode ido-ubiquitous groovy-mode git-gutter company clojure-mode-extra-font-locking clj-refactor cider-eval-sexp-fu auto-highlight-symbol aggressive-indent adoc-mode))))
 
 
 
@@ -191,6 +194,7 @@
 ;; highlight words
 (require 'auto-highlight-symbol)
 (global-auto-highlight-symbol-mode t)
+(add-hook 'prog-mode-hook 'auto-highlight-symbol-mode)
 
 ;; undo tree
 (global-undo-tree-mode t)
