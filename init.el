@@ -152,8 +152,17 @@
   ;; put the point in the lowest line and return
   (next-line arg))
 
+(global-set-key (kbd "C-d") nil)
 (global-set-key (kbd "C-d") 'duplicate-line)
 
+;;; CIDER stuff
+
+;; cider cljs nRepl conf 
+(require 'cider)
+(setq cider-cljs-lein-repl
+      "(do (require 'figwheel-sidecar.repl-api)
+           (figwheel-sidecar.repl-api/start-figwheel!)
+           (figwheel-sidecar.repl-api/cljs-repl))")
 
 ;;
 (require 'paxedit)
@@ -167,7 +176,6 @@
 
 (global-company-mode)
 (global-git-gutter-mode +1)
-(global-hl-line-mode)
 
 
 (add-hook 'clojure-mode-hook #'paredit-mode)
@@ -194,7 +202,7 @@
 ;; highlight words
 (require 'auto-highlight-symbol)
 (global-auto-highlight-symbol-mode t)
-(add-hook 'prog-mode-hook 'auto-highlight-symbol-mode)
+(global-hl-line-mode)
 
 ;; undo tree
 (global-undo-tree-mode t)
@@ -202,7 +210,8 @@
 (require 'clj-refactor)
 (setq cljr-warn-on-eval nil)
 
-(require 'cider-eval-sexp-fu)
+;; disable the broken below package
+;;(require 'cider-eval-sexp-fu)
 
 (defun my-clojure-mode-hook ()
   (clj-refactor-mode 1)
@@ -221,15 +230,15 @@
 	  '(lambda () (add-hook 'after-save-hook
 				'(lambda ()
 				   (if (and (boundp 'cider-mode) cider-mode)
-				       (cider-namespace-refresh))))))
+				       (cider-refresh))))))
 
 (defun cider-namespace-refresh ()
   (interactive)
   (cider-interactive-eval
    "(require 'clojure.tools.namespace.repl)
-  (clojure.tools.namespace.repl/refresh)"))
+   (clojure.tools.namespace.repl/refresh)"))
 
-(define-key clojure-mode-map (kbd "C-c C-r") 'cider-namespace-refresh)
+(define-key clojure-mode-map (kbd "C-c C-r") 'cider-refresh)
 
 
 (autoload 'markdown-mode "markdown-mode"
@@ -238,10 +247,6 @@
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
-
-
-					;(add-hook 'cider-repl-mode-hook #'smartparens-strict-mode)
-					;(add-hook 'clojure-mode-hook #'smartparens-strict-mode)
 
 
 (custom-set-faces
@@ -254,4 +259,4 @@
 
 ;;; Smex
 (autoload 'smex "smex")
-(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "<M-x S>") 'smex)
