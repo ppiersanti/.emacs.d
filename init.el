@@ -305,3 +305,4 @@
 (setq parinfer-auto-switch-indent-mode t)
 (setq parinfer-auto-switch-indent-mode-when-closing t)  ;; default
 (setq parinfer-extensions '(defaults pretty-parens smart-yank))
+(setq parinfer-lighters '("Parinfer:Indent" . "Parinfer:Paren"))
