@@ -300,8 +300,7 @@
     (add-hook 'emacs-lisp-mode-hook #'parinfer-mode)
     (add-hook 'common-lisp-mode-hook #'parinfer-mode)
     (add-hook 'scheme-mode-hook #'parinfer-mode)
-    (add-hook 'lisp-mode-hook #'parinfer-mode)
-    (add-hook 'cider-repl-mode-hook #'parinfer-mode)))
+    (add-hook 'lisp-mode-hook #'parinfer-mode)))
 
 (setq parinfer-auto-switch-indent-mode t)
 (setq parinfer-auto-switch-indent-mode-when-closing t)  ;; default
