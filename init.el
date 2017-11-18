@@ -661,7 +661,10 @@
   :config
   (use-package flycheck-clojure
     :ensure t
-    :config (flycheck-clojure-setup)))
+    :config (flycheck-clojure-setup)
+    (use-package flycheck-pos-tip
+    :ensure t
+    :config (setq flycheck-display-errors-function #'flycheck-pos-tip-error-messages))))
 
 (use-package projectile
   :load-path "site-lisp/projectile"
