@@ -5,6 +5,8 @@
 (setq scroll-conservatively 1000)
 (setq column-number-mode t)
 (setq transient-mark-mode t)
+(setq sml/no-confirm-load-theme t)
+
 (global-set-key (quote [f2]) 'dabbrev-expand)
 (global-set-key (quote [f3]) 'dabbrev-completion)
 (global-set-key (quote [f5]) 'compile)
@@ -12,8 +14,23 @@
 (global-set-key (quote [f11]) 'indent-region)
 (global-set-key (quote [f12]) 'comment-or-uncomment-region)
 (global-set-key [C-tab] 'other-window)
+(global-set-key [C-S-tab] (lambda () (interactive) (other-window -1)))
 
 (setq compilation-scroll-output t)
+
+(require 'package)
+
+(setq package-archives
+      '(("gnu" . "http://elpa.gnu.org/packages/")
+	;;        ("melpa-stable" . "https://stable.melpa.org/packages/")
+        ("melpa" . "https://melpa.org/packages/")))
+(package-initialize)
+
+;; Bootstrap `use-package'
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
 
 ;; backup
 (defvar --backup-directory (concat user-emacs-directory "backups"))
@@ -30,7 +47,7 @@
       auto-save-default t               ; auto-save every buffer that visits a file
       auto-save-timeout 30              ; number of seconds idle time before auto-save (default: 30)
       auto-save-interval 300)            ; number of keystrokes between auto-saves (default: 300)
-      
+
 
 
 (setq compilation-ask-about-save nil)
@@ -49,14 +66,14 @@
 ;; map org file to org-mode
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 
-          ;(setq visible-bell t)
+					;(setq visible-bell t)
 (setq ring-bell-function
       (lambda ()
-  (unless (memq this-command)
+	(unless (memq this-command)
           '(isearch-abort abort-recursive-edit
-              exit-minibuffer keyboard-quit)
-    (invert-face 'mode-line)
-    (run-with-timer 0.1 nil 'invert-face 'mode-line))))
+			  exit-minibuffer keyboard-quit)
+	  (invert-face 'mode-line)
+	  (run-with-timer 0.1 nil 'invert-face 'mode-line))))
 
 (display-time)
 
@@ -72,7 +89,6 @@
 ;;       auto-save-timeout 1)
 
 (show-paren-mode)
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -84,23 +100,110 @@
    ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
  '(cider-repl-use-pretty-printing t)
  '(cua-mode t nil (cua-base))
- '(custom-enabled-themes (quote (deeper-blue)))
- '(ido-everywhere t)
+ '(custom-enabled-themes (quote (smart-mode-line-powerline)))
+ '(custom-safe-themes
+   (quote
+    ("c74e83f8aa4c78a121b52146eadb792c9facc5b1f02c917e3dbb454fca931223" "84d2f9eeb3f82d619ca4bfffe5f157282f4779732f48a5ac1484d94d5ff5b279" "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" "b9e9ba5aeedcc5ba8be99f1cc9301f6679912910ff92fdf7980929c2fc83ab4d" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "28ec8ccf6190f6a73812df9bc91df54ce1d6132f18b4c8fcc85d45298569eb53" "ff7625ad8aa2615eae96d6b4469fcc7d3d20b2e1ebc63b761a349bebbb9d23cb" default)))
+ '(fci-rule-color "#14151E")
  '(inhibit-startup-screen t)
  '(package-selected-packages
    (quote
-    (parinfer kibit-helper cloc ac-cider sr-speedbar undo-tree smex projectile paxedit markdown-mode ido-ubiquitous groovy-mode git-gutter company clojure-mode-extra-font-locking clj-refactor cider-eval-sexp-fu auto-highlight-symbol aggressive-indent adoc-mode))))
+    (flycheck-clojure flycheck smart-mode-line-powerline-theme smart-mode-line ivy-rich use-package helm flx dracula-theme bm magit lispy web-mode neotree parinfer kibit-helper cloc ac-cider undo-tree smex projectile paxedit markdown-mode groovy-mode git-gutter company clojure-mode-extra-font-locking clj-refactor cider-eval-sexp-fu auto-highlight-symbol aggressive-indent adoc-mode)))
+ '(sml/mode-width
+   (if
+       (eq
+	(powerline-current-separator)
+	(quote arrow))
+       (quote right)
+     (quote full)))
+ '(sml/pos-id-separator
+   (quote
+    (""
+     (:propertize " " face powerline-active1)
+     (:eval
+      (propertize " "
+		  (quote display)
+		  (funcall
+		   (intern
+		    (format "powerline-%s-%s"
+			    (powerline-current-separator)
+			    (car powerline-default-separator-dir)))
+		   (quote powerline-active1)
+		   (quote powerline-active2))))
+     (:propertize " " face powerline-active2))))
+ '(sml/pos-minor-modes-separator
+   (quote
+    (""
+     (:propertize " " face powerline-active1)
+     (:eval
+      (propertize " "
+		  (quote display)
+		  (funcall
+		   (intern
+		    (format "powerline-%s-%s"
+			    (powerline-current-separator)
+			    (cdr powerline-default-separator-dir)))
+		   (quote powerline-active1)
+		   (quote sml/global))))
+     (:propertize " " face sml/global))))
+ '(sml/pre-id-separator
+   (quote
+    (""
+     (:propertize " " face sml/global)
+     (:eval
+      (propertize " "
+		  (quote display)
+		  (funcall
+		   (intern
+		    (format "powerline-%s-%s"
+			    (powerline-current-separator)
+			    (car powerline-default-separator-dir)))
+		   (quote sml/global)
+		   (quote powerline-active1))))
+     (:propertize " " face powerline-active1))))
+ '(sml/pre-minor-modes-separator
+   (quote
+    (""
+     (:propertize " " face powerline-active2)
+     (:eval
+      (propertize " "
+		  (quote display)
+		  (funcall
+		   (intern
+		    (format "powerline-%s-%s"
+			    (powerline-current-separator)
+			    (cdr powerline-default-separator-dir)))
+		   (quote powerline-active2)
+		   (quote powerline-active1))))
+     (:propertize " " face powerline-active1))))
+ '(sml/pre-modes-separator (propertize " " (quote face) (quote sml/modes)))
+ '(vc-annotate-background nil)
+ '(vc-annotate-color-map
+   (quote
+    ((20 . "#d54e53")
+     (40 . "goldenrod")
+     (60 . "#e7c547")
+     (80 . "DarkOliveGreen3")
+     (100 . "#70c0b1")
+     (120 . "DeepSkyBlue1")
+     (140 . "#c397d8")
+     (160 . "#d54e53")
+     (180 . "goldenrod")
+     (200 . "#e7c547")
+     (220 . "DarkOliveGreen3")
+     (240 . "#70c0b1")
+     (260 . "DeepSkyBlue1")
+     (280 . "#c397d8")
+     (300 . "#d54e53")
+     (320 . "goldenrod")
+     (340 . "#e7c547")
+     (360 . "DarkOliveGreen3"))))
+ '(vc-annotate-very-old-color nil))
 
 
 
-(require 'package) ;; You might already have this line
-
-(setq package-archives
-      '(("gnu" . "http://elpa.gnu.org/packages/")
-  ;;        ("melpa-stable" . "https://stable.melpa.org/packages/")
-        ("melpa" . "https://melpa.org/packages/")))
-(package-initialize) ;; You might already have this line
-
+(require 'diminish)
+(require 'bind-key)
 
 ;; indentation
 (defun indent-buffer ()
@@ -144,46 +247,43 @@
           (newline)         ;; because there is no newline in 'line'
           (insert line)
           (setq count (1- count))))
-        
+
 
       ;; create the undo information
       (setq buffer-undo-list (cons (cons eol (point)) buffer-undo-list))))
-     ; end-of-let
+					; end-of-let
 
   ;; put the point in the lowest line and return
   (next-line arg))
 
-(global-set-key (kbd "C-d") nil)
-(global-set-key (kbd "C-d") 'duplicate-line)
+(global-set-key (kbd "C-x C-d") 'duplicate-line)
 
 ;;; CIDER stuff
 
-;; cider cljs nRepl conf 
+;; cider cljs nRepl conf
 (require 'cider)
 (setq cider-cljs-lein-repl
       "(do (user/run)
            (user/browser-repl))")
-      ;; "(do (require 'figwheel-sidecar.repl-api)
-      ;;      (figwheel-sidecar.repl-api/start-figwheel!)
-      ;;      (figwheel-sidecar.repl-api/cljs-repl))"
-      
+;; "(do (require 'figwheel-sidecar.repl-api)
+;;      (figwheel-sidecar.repl-api/start-figwheel!)
+;;      (figwheel-sidecar.repl-api/cljs-repl))"
+
 
 ;;
 ;;(require 'paxedit)
 
-(setq ido-enable-flex-matching t)
-(ido-mode 1)
-(ido-everywhere t)
+(use-package company
+  :ensure t
+  :defer 5
+  :config (global-company-mode))
 
-(require 'ido-completing-read+)
-(ido-ubiquitous-mode 1)
-
-(global-company-mode)
 (global-git-gutter-mode +1)
 
 
 (add-hook 'clojure-mode-hook #'paredit-mode)
 (add-hook 'clojure-mode-hook #'paxedit-mode)
+(add-hook 'clojure-mode-hook #'lispy-mode)
 (add-hook 'clojure-mode-hook #'aggressive-indent-mode)
 (add-hook 'clojure-mode-hook #'subword-mode)
 (add-hook 'cider-mode-hook #'eldoc-mode)
@@ -191,6 +291,7 @@
 
 (add-hook 'cider-repl-mode-hook #'paredit-mode)
 (add-hook 'cider-repl-mode-hook #'paxedit-mode)
+(add-hook 'clojure-mode-hook #'lispy-mode)
 (add-hook 'cider-repl-mode-hook #'subword-mode)
 (add-hook 'cider-repl-mode-hook #'eldoc-mode)
 ;;(add-hook 'cider-repl-mode-hook #'rainbow-delimiters-mode)  ;; does not work
@@ -257,12 +358,13 @@
 
 
 
-(custom-set-faces)
+(custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- 
+ )
+
 
 
 ;;; Smex
@@ -279,9 +381,318 @@
 ;;     '(add-to-list 'ac-modes 'cider-mode))
 
 
-(require 'sr-speedbar)
-
 ;; copy and paste form
 (fset 'copy-and-paste
-   [?\C-\M-  ?\M-w ?\C-\M-f return return ?\C-y])
+      [?\C-\M-  ?\M-w ?\C-\M-f return return ?\C-y])
 (global-set-key (quote [f4]) 'copy-and-paste)
+
+
+(setq org-confirm-babel-evaluate nil)
+(setq org-export-babel-evaluate nil)
+(setq org-startup-indented t)
+;; Update images from babel code blocks automatically
+(add-hook 'org-babel-after-execute-hook 'org-display-inline-images)
+(setq org-src-fontify-natively t)
+(setq org-src-tab-acts-natively t)
+
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((python . t)
+   (emacs-lisp . t)
+   (clojure . t)))
+
+
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+
+
+;;; Ivy
+
+(use-package ivy
+  :demand t
+  :diminish ivy-mode
+  :load-path "site-lisp/site-ivy/swiper"
+  :bind (("C-x b" . ivy-switch-buffer)
+         ("C-x B" . ivy-switch-buffer-other-window)
+         ("M-H"   . ivy-resume))
+  :commands ivy-mode
+  :config
+  (setq ivy-initial-inputs-alist nil
+        ivy-re-builders-alist '((t . ivy--regex-ignore-order))
+	magit-completing-read-function 'ivy-completing-read
+	projectile-completion-system 'ivy
+	ivy-use-virtual-buffers t
+	enable-recursive-minibuffers t)
+
+  (ivy-mode 1)
+
+  (bind-key "C-r" #'ivy-previous-line-or-history ivy-minibuffer-map)
+  (bind-key "M-r" #'ivy-reverse-i-search ivy-minibuffer-map)
+
+  (use-package ivy-hydra
+    :ensure t)
+
+  (use-package ivy-rich
+    :demand t
+    :load-path "site-lisp/site-ivy/ivy-rich"
+    :config
+    (ivy-set-display-transformer 'ivy-switch-buffer
+                                 'ivy-rich-switch-buffer-transformer)
+    (setq ivy-virtual-abbreviate 'full
+          ivy-rich-switch-buffer-align-virtual-buffer t)
+    (setq ivy-rich-path-style 'abbrev))
+
+  (use-package swiper
+    :demand t
+    :load-path "site-lisp/ivy/swiper"
+    :bind (("C-s" . swiper)
+           ("C-. C-s" . swiper)
+           ("C-. C-r" . swiper))
+    :commands swiper-from-isearch
+    :init
+    (bind-key "C-." #'swiper-from-isearch isearch-mode-map)
+    :config
+    (bind-key "M-y" #'yank swiper-map)
+    (bind-key "M-%" #'swiper-query-replace swiper-map)
+    (bind-key "M-h" #'swiper-avy swiper-map)
+    (bind-key "M-c" #'swiper-mc swiper-map))
+
+  (use-package counsel
+    :demand t
+    :diminish counsel-mode
+    :bind (("M-x"     . counsel-M-x)
+           ("C-h f"   . counsel-describe-function)
+           ("C-h v"   . counsel-describe-variable)
+           ("C-h E l" . counsel-find-library)
+           ("C-h E u" . counsel-unicode-char))
+    :commands counsel-minibuffer-history
+    :init
+    (define-key minibuffer-local-map (kbd "M-r")
+      'counsel-minibuffer-history))
+  :config
+  (counsel-mode 1))
+
+(use-package magit
+  :load-path ("site-lisp/site-git/magit/lisp"
+              "lib/with-editor")
+  :bind (("C-x g" . magit-status)
+         ("C-x G" . magit-status-with-prefix))
+  :preface
+  (defun magit-monitor (&optional no-display)
+    "Start git-monitor in the current directory."
+    (interactive)
+    (when (string-match "\\*magit: \\(.+\\)" (buffer-name))
+      (let ((name (format "*git-monitor: %s*"
+                          (match-string 1 (buffer-name)))))
+        (or (get-buffer name)
+            (let ((buf (get-buffer-create name)))
+              (ignore-errors
+                (start-process "*git-monitor*" buf "git-monitor"
+                               "-d" (expand-file-name default-directory)))
+              buf)))))
+
+  (defun magit-status-with-prefix ()
+    (interactive)
+    (let ((current-prefix-arg '(4)))
+      (call-interactively 'magit-status)))
+
+  (defun lusty-magit-status (dir &optional switch-function)
+    (interactive (list (if current-prefix-arg
+                           (lusty-read-directory)
+                         (or (magit-get-top-dir)
+                             (lusty-read-directory)))))
+    (magit-status-internal dir switch-function))
+
+  (defun eshell/git (&rest args)
+    (cond
+     ((or (null args)
+          (and (string= (car args) "status") (null (cdr args))))
+      (magit-status-internal default-directory))
+     ((and (string= (car args) "log") (null (cdr args)))
+      (magit-log "HEAD"))
+     (t (throw 'eshell-replace-command
+               (eshell-parse-command
+                "*git"
+                (eshell-stringify-list (eshell-flatten-list args)))))))
+
+  :init
+  (add-hook 'magit-mode-hook 'hl-line-mode)
+
+  (use-package git-commit)
+
+  :config
+  (setenv "GIT_PAGER" ""))
+
+(use-package magit-commit
+  :config
+  (remove-hook 'server-switch-hook 'magit-commit-diff))
+
+(unbind-key "M-h" magit-mode-map)
+(unbind-key "M-s" magit-mode-map)
+(unbind-key "M-m" magit-mode-map)
+(unbind-key "M-w" magit-mode-map)
+(unbind-key "<C-return>" magit-file-section-map)
+
+(diminish 'magit-wip-after-save-local-mode)
+(diminish 'magit-wip-after-apply-mode)
+(diminish 'magit-wip-before-change-mode)
+
+(bind-key "M-H" #'magit-show-level-2-all magit-mode-map)
+(bind-key "M-S" #'magit-show-level-4-all magit-mode-map)
+(bind-key "U" #'magit-unstage-all magit-mode-map)
+
+(add-hook 'magit-log-edit-mode-hook
+	  #'(lambda ()
+	      (set-fill-column 72)
+	      (flyspell-mode 1)))
+
+(add-hook 'magit-status-mode-hook #'(lambda () (magit-monitor t)))
+
+(remove-hook 'server-switch-hook 'magit-commit-diff)
+
+;; Bookmarks
+
+(require 'bm)
+
+;; from Howard
+
+(require 'cl)
+
+(use-package dash
+ :ensure t
+ :config (eval-after-load "dash" '(dash-enable-font-lock)))
+
+(use-package s
+  :ensure t)
+
+(use-package f
+  :ensure t)
+
+(fset 'yes-or-no-p 'y-or-n-p)
+
+;(when (window-system)
+;  (tool-bar-mode 0)               ;; Toolbars were only cool with XEmacs
+;  (when (fboundp 'horizontal-scroll-bar-mode)
+;    (horizontal-scroll-bar-mode -1))
+;  (scroll-bar-mode -1))            ;; Scrollbars are waste screen estate
+
+
+
+(use-package powerline
+ :ensure t
+ :init
+ (setq powerline-default-separator 'curve
+       powerline-default-separator-dir (quote (left . right))
+       powerline-height 22
+       powerline-display-buffer-size nil
+       powerline-display-hud nil
+       powerline-display-mule-info nil
+       powerline-gui-use-vcs-glyph t
+       powerline-inactive1 '((t (:background "grey11" :foreground "#c5c8c6")))
+      powerline-inactive2 '((t (:background "grey20" :foreground "#c5c8c6")))))
+
+(use-package ace-window
+ :ensure t
+ :init
+   (setq aw-keys '(?a ?s ?d ?f ?j ?k ?l ?o))
+   (global-set-key (kbd "C-x o") 'ace-window)
+ :diminish ace-window-mode)
+
+;; delete trailing whitespace
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+;; regex visual
+
+(use-package visual-regexp
+ :ensure t
+ :init
+ (use-package visual-regexp-steroids :ensure t)
+
+ :bind (("C-c r" . vr/replace)
+        ("C-c q" . vr/query-replace))
+
+ ;; if you use multiple-cursors, this is for you:
+ :config (use-package  multiple-cursors
+           :bind ("C-c m" . vr/mc-mark)))
+
+
+;; delete whitespace
+
+(require 'hungry-delete)
+(global-hungry-delete-mode)
+
+
+(use-package eldoc
+  :diminish eldoc-mode
+  :init  (setq eldoc-idle-delay 0.1))
+
+;; folding
+
+(defun ha/hs-show-all ()
+  (interactive)
+  (hs-minor-mode 1)
+  (hs-show-all))
+
+(defun ha/hs-hide-all ()
+  (interactive)
+  (hs-minor-mode 1)
+  (hs-hide-all))
+
+(defun ha/hs-toggle-hiding ()
+  (interactive)
+  (hs-minor-mode 1)
+  (hs-toggle-hiding))
+
+(use-package hs-minor-mode
+  :bind
+  ("C-c T h" . hs-minor-mode)
+  ("C-c h a" . ha/hs-hide-all)
+  ("C-c h s" . ha/hs-show-all)
+  ("C-c h h" . ha/hs-toggle-hiding))
+
+
+;; git time machine
+(use-package git-timemachine
+  :ensure t)
+
+;; flyccheck clojure
+(use-package flycheck
+  :ensure t
+  :init (global-flycheck-mode)
+  :config
+  (use-package flycheck-clojure
+    :ensure t
+    :config (flycheck-clojure-setup)))
+
+(use-package projectile
+  :load-path "site-lisp/projectile"
+  :diminish projectile-mode
+  :commands projectile-global-mode
+  :defer 5
+  :bind-keymap ("C-c p" . projectile-command-map)
+  :config
+  (use-package counsel-projectile
+    :after ivy
+    :if ivy-mode
+    :load-path "site-lisp/site-ivy/counsel-projectile"
+    :config
+    (setq projectile-completion-system 'ivy)
+    (counsel-projectile-on)
+    (define-key projectile-mode-map [remap projectile-ag]
+      #'counsel-projectile-rg))
+  (projectile-global-mode))
+
+
+
+;; ;; (helm-mode 1)
+;; ;; (require 'helm-config)
+;; ;; (global-set-key (kbd "M-x") #'helm-M-x)
+;; ;; (global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
+;; ;; (global-set-key (kbd "C-x C-f") #'helm-find-files)
+
+(use-package smart-mode-line-powerline-theme
+   :ensure t
+   :after powerline
+   :after smart-mode-line
+   :config
+    (sml/setup)
+    (sml/apply-theme 'powerline))
