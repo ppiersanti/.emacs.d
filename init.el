@@ -89,7 +89,7 @@
  '(inhibit-startup-screen t)
  '(package-selected-packages
    (quote
-    (parinfer kibit-helper cloc ac-cider sr-speedbar undo-tree smex projectile paxedit markdown-mode ido-ubiquitous groovy-mode git-gutter company clojure-mode-extra-font-locking clj-refactor cider-eval-sexp-fu auto-highlight-symbol aggressive-indent adoc-mode))))
+    (lispy neotree parinfer kibit-helper cloc ac-cider sr-speedbar undo-tree smex projectile paxedit markdown-mode ido-ubiquitous groovy-mode git-gutter company clojure-mode-extra-font-locking clj-refactor cider-eval-sexp-fu auto-highlight-symbol aggressive-indent adoc-mode))))
 
 
 
@@ -210,6 +210,7 @@
 (require 'auto-highlight-symbol)
 (global-auto-highlight-symbol-mode t)
 (global-hl-line-mode)
+(auto-highlight-symbol-mode t)
 
 ;; undo tree
 (global-undo-tree-mode t)
@@ -257,7 +258,12 @@
 
 
 
-(custom-set-faces)
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
@@ -279,9 +285,28 @@
 ;;     '(add-to-list 'ac-modes 'cider-mode))
 
 
-(require 'sr-speedbar)
+;; (require 'sr-speedbar)
 
 ;; copy and paste form
 (fset 'copy-and-paste
    [?\C-\M-  ?\M-w ?\C-\M-f return return ?\C-y])
 (global-set-key (quote [f4]) 'copy-and-paste)
+
+;; neotree
+(require 'neotree)
+(setq neo-smart-open t)
+(setq projectile-switch-project-action 'neotree-projectile-action)
+
+(defun neotree-project-dir ()
+    "Open NeoTree using the git root."
+    (interactive)
+    (let ((project-dir (projectile-project-root))
+          (file-name (buffer-file-name)))
+      (neotree-toggle)
+      (if project-dir
+          (if (neo-global--window-exists-p)
+              (progn
+                (neotree-dir project-dir)
+                (neotree-find file-name)))
+        (message "Could not find git project root."))))
+(global-set-key [f8] 'neotree-project-dir)
