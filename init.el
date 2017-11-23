@@ -476,6 +476,7 @@
     (bind-key "M-c" #'swiper-mc swiper-map))
 
   (use-package counsel
+    :ensure t
     :demand t
     :diminish counsel-mode
     :bind (("M-x"     . counsel-M-x)
