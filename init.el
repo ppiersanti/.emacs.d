@@ -515,11 +515,6 @@
     (let ((current-prefix-arg '(4)))
       (call-interactively 'magit-status)))
 
-  (defun lusty-magit-status (dir &optional switch-function)
-    (interactive (list (if current-prefix-arg
-                           (lusty-read-directory)
-                         (or (magit-get-top-dir)
-                             (lusty-read-directory)))))
     (magit-status-internal dir switch-function))
 
   (defun eshell/git (&rest args)
