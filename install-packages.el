@@ -1,9 +1,15 @@
-; list the packages 
+; list the packages
 (setq package-list '(cider
 		     ido-ubiquitous
 		     smex
 		     company
-		     undo-tree))
+		     undo-tree
+		     flx
+		     helm
+		     diminish
+		     counsel
+		     hungry-delete
+		     ivy-rich))
 
 ;; repositories
 (setq package-archives
@@ -14,7 +20,7 @@
 ;; activate all the packages (in particular autoloads)
 (package-initialize)
 
-;; fetch the list of packages available 
+;; fetch the list of packages available
 (unless package-archive-contents
   (package-refresh-contents))
 
@@ -22,4 +28,3 @@
 (dolist (package package-list)
   (unless (package-installed-p package)
     (package-install package)))
-
