@@ -100,83 +100,15 @@
    ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
  '(cider-repl-use-pretty-printing t)
  '(cua-mode t nil (cua-base))
- '(custom-enabled-themes (quote (smart-mode-line-light-powerline)))
+ '(custom-enabled-themes (quote (gon)))
  '(custom-safe-themes
    (quote
-    ("d62d23da24aacd68839ae9f1e5e1e3a3516b6ecf990f6e9b27c791c68837c500" "f131a168e3b346a9ce44c8b88779fe3d6ab38053951f4559e28384b10a562f8e" "c74e83f8aa4c78a121b52146eadb792c9facc5b1f02c917e3dbb454fca931223" "84d2f9eeb3f82d619ca4bfffe5f157282f4779732f48a5ac1484d94d5ff5b279" "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" "b9e9ba5aeedcc5ba8be99f1cc9301f6679912910ff92fdf7980929c2fc83ab4d" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "28ec8ccf6190f6a73812df9bc91df54ce1d6132f18b4c8fcc85d45298569eb53" "ff7625ad8aa2615eae96d6b4469fcc7d3d20b2e1ebc63b761a349bebbb9d23cb" default)))
+    ("041939941dbf5df4516351b72d603230f774fcf79babe3b480cfc6c050fb3549" "4939c82993d7b67a63c5fff3339946209dec7f857842b689d7f94fcbb3097f12" "42a271e747d9a7d03fcaa7041fef43563fb8ce0320e6e1373869aa8171cec8d9" "a4fcd165b62dd763638cfa21ac27dedc07c8703e3466b155293f597b0063936e" "d62d23da24aacd68839ae9f1e5e1e3a3516b6ecf990f6e9b27c791c68837c500" "f131a168e3b346a9ce44c8b88779fe3d6ab38053951f4559e28384b10a562f8e" "c74e83f8aa4c78a121b52146eadb792c9facc5b1f02c917e3dbb454fca931223" "84d2f9eeb3f82d619ca4bfffe5f157282f4779732f48a5ac1484d94d5ff5b279" "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" "b9e9ba5aeedcc5ba8be99f1cc9301f6679912910ff92fdf7980929c2fc83ab4d" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "28ec8ccf6190f6a73812df9bc91df54ce1d6132f18b4c8fcc85d45298569eb53" "ff7625ad8aa2615eae96d6b4469fcc7d3d20b2e1ebc63b761a349bebbb9d23cb" default)))
  '(fci-rule-color "#14151E")
  '(inhibit-startup-screen t)
  '(package-selected-packages
    (quote
     (flycheck-clojure flycheck smart-mode-line-powerline-theme smart-mode-line ivy-rich use-package helm flx dracula-theme bm magit lispy web-mode neotree parinfer kibit-helper cloc ac-cider undo-tree smex projectile paxedit markdown-mode groovy-mode git-gutter company clojure-mode-extra-font-locking clj-refactor cider-eval-sexp-fu auto-highlight-symbol aggressive-indent adoc-mode)))
- '(sml/mode-width
-   (if
-       (eq
-	(powerline-current-separator)
-	(quote arrow))
-       (quote right)
-     (quote full)))
- '(sml/pos-id-separator
-   (quote
-    (""
-     (:propertize " " face powerline-active1)
-     (:eval
-      (propertize " "
-		  (quote display)
-		  (funcall
-		   (intern
-		    (format "powerline-%s-%s"
-			    (powerline-current-separator)
-			    (car powerline-default-separator-dir)))
-		   (quote powerline-active1)
-		   (quote powerline-active2))))
-     (:propertize " " face powerline-active2))))
- '(sml/pos-minor-modes-separator
-   (quote
-    (""
-     (:propertize " " face powerline-active1)
-     (:eval
-      (propertize " "
-		  (quote display)
-		  (funcall
-		   (intern
-		    (format "powerline-%s-%s"
-			    (powerline-current-separator)
-			    (cdr powerline-default-separator-dir)))
-		   (quote powerline-active1)
-		   (quote sml/global))))
-     (:propertize " " face sml/global))))
- '(sml/pre-id-separator
-   (quote
-    (""
-     (:propertize " " face sml/global)
-     (:eval
-      (propertize " "
-		  (quote display)
-		  (funcall
-		   (intern
-		    (format "powerline-%s-%s"
-			    (powerline-current-separator)
-			    (car powerline-default-separator-dir)))
-		   (quote sml/global)
-		   (quote powerline-active1))))
-     (:propertize " " face powerline-active1))))
- '(sml/pre-minor-modes-separator
-   (quote
-    (""
-     (:propertize " " face powerline-active2)
-     (:eval
-      (propertize " "
-		  (quote display)
-		  (funcall
-		   (intern
-		    (format "powerline-%s-%s"
-			    (powerline-current-separator)
-			    (cdr powerline-default-separator-dir)))
-		   (quote powerline-active2)
-		   (quote powerline-active1))))
-     (:propertize " " face powerline-active1))))
- '(sml/pre-modes-separator (propertize " " (quote face) (quote sml/modes)))
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
    (quote
@@ -492,6 +424,7 @@
   (counsel-mode 1))
 
 (use-package magit
+  :ensure t
   :load-path ("site-lisp/site-git/magit/lisp"
               "lib/with-editor")
   :bind (("C-x g" . magit-status)
@@ -515,7 +448,7 @@
     (let ((current-prefix-arg '(4)))
       (call-interactively 'magit-status)))
 
-    (magit-status-internal dir switch-function))
+    ;(magit-status-internal dir switch-function))
 
   (defun eshell/git (&rest args)
     (cond
@@ -537,23 +470,11 @@
   :config
   (setenv "GIT_PAGER" ""))
 
-(use-package magit-commit
-  :config
-  (remove-hook 'server-switch-hook 'magit-commit-diff))
-
-(unbind-key "M-h" magit-mode-map)
-(unbind-key "M-s" magit-mode-map)
-(unbind-key "M-m" magit-mode-map)
-(unbind-key "M-w" magit-mode-map)
-(unbind-key "<C-return>" magit-file-section-map)
 
 (diminish 'magit-wip-after-save-local-mode)
 (diminish 'magit-wip-after-apply-mode)
 (diminish 'magit-wip-before-change-mode)
 
-(bind-key "M-H" #'magit-show-level-2-all magit-mode-map)
-(bind-key "M-S" #'magit-show-level-4-all magit-mode-map)
-(bind-key "U" #'magit-unstage-all magit-mode-map)
 
 (add-hook 'magit-log-edit-mode-hook
 	  #'(lambda ()
@@ -566,7 +487,65 @@
 
 ;; Bookmarks
 
-(require 'bm)
+(use-package bm
+         :ensure t
+         :demand t
+
+         :init
+         ;; restore on load (even before you require bm)
+         (setq bm-restore-repository-on-load t)
+
+
+         :config
+         ;; Allow cross-buffer 'next'
+         (setq bm-cycle-all-buffers t)
+
+         ;; where to store persistant files
+         (setq bm-repository-file "~/.emacs.d/bm-repository")
+
+         ;; save bookmarks
+         (setq-default bm-buffer-persistence t)
+
+         ;; Loading the repository from file when on start up.
+         (add-hook' after-init-hook 'bm-repository-load)
+
+         ;; Restoring bookmarks when on file find.
+         (add-hook 'find-file-hooks 'bm-buffer-restore)
+
+         ;; Saving bookmarks
+         (add-hook 'kill-buffer-hook #'bm-buffer-save)
+
+         ;; Saving the repository to file when on exit.
+         ;; kill-buffer-hook is not called when Emacs is killed, so we
+         ;; must save all bookmarks first.
+         (add-hook 'kill-emacs-hook #'(lambda nil
+                                          (bm-buffer-save-all)
+                                          (bm-repository-save)))
+
+         ;; The `after-save-hook' is not necessary to use to achieve persistence,
+         ;; but it makes the bookmark data in repository more in sync with the file
+         ;; state.
+         (add-hook 'after-save-hook #'bm-buffer-save)
+
+         ;; Restoring bookmarks
+         (add-hook 'find-file-hooks   #'bm-buffer-restore)
+         (add-hook 'after-revert-hook #'bm-buffer-restore)
+
+         ;; The `after-revert-hook' is not necessary to use to achieve persistence,
+         ;; but it makes the bookmark data in repository more in sync with the file
+         ;; state. This hook might cause trouble when using packages
+         ;; that automatically reverts the buffer (like vc after a check-in).
+         ;; This can easily be avoided if the package provides a hook that is
+         ;; called before the buffer is reverted (like `vc-before-checkin-hook').
+         ;; Then new bookmarks can be saved before the buffer is reverted.
+         ;; Make sure bookmarks is saved before check-in (and revert-buffer)
+         (add-hook 'vc-before-checkin-hook #'bm-buffer-save)
+
+
+         :bind (("<f2>" . bm-next)
+                ("S-<f2>" . bm-previous)
+                ("C-<f2>" . bm-toggle))
+         )
 
 ;; from Howard
 
@@ -712,5 +691,5 @@
    :after powerline
    :after smart-mode-line
    :config
-    (sml/setup)
-    (sml/apply-theme 'powerline))
+   (setq sml/theme 'smart-mode-line-light-powerline)
+   (sml/setup))
