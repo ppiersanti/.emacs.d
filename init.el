@@ -108,7 +108,7 @@
  '(inhibit-startup-screen t)
  '(package-selected-packages
    (quote
-    (flycheck-clojure flycheck smart-mode-line-powerline-theme smart-mode-line ivy-rich use-package helm flx dracula-theme bm magit lispy web-mode neotree parinfer kibit-helper cloc ac-cider undo-tree smex projectile paxedit markdown-mode groovy-mode git-gutter company clojure-mode-extra-font-locking clj-refactor cider-eval-sexp-fu auto-highlight-symbol aggressive-indent adoc-mode)))
+    (magit-gitflow flycheck-clojure flycheck smart-mode-line-powerline-theme smart-mode-line ivy-rich use-package helm flx dracula-theme bm magit lispy web-mode neotree parinfer kibit-helper cloc ac-cider undo-tree smex projectile paxedit markdown-mode groovy-mode git-gutter company clojure-mode-extra-font-locking clj-refactor cider-eval-sexp-fu auto-highlight-symbol aggressive-indent adoc-mode)))
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
    (quote
@@ -693,3 +693,9 @@
    :config
    (setq sml/theme 'smart-mode-line-light-powerline)
    (sml/setup))
+
+(use-package magit-gitflow
+  :ensure t
+  :after magit
+  :config
+  (add-hook 'magit-mode-hook 'turn-on-magit-gitflow))
