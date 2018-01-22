@@ -715,3 +715,6 @@
   :after magit
   :config
   (add-hook 'magit-mode-hook 'turn-on-magit-gitflow))
+
+(use-package lispy
+  :ensure t)
