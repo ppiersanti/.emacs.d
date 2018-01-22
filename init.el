@@ -99,16 +99,17 @@
  '(ansi-color-names-vector
    ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
  '(cider-repl-use-pretty-printing t)
+ '(cljr-favor-prefix-notation t)
  '(cua-mode t nil (cua-base))
  '(custom-enabled-themes (quote (gon)))
  '(custom-safe-themes
    (quote
-    ("041939941dbf5df4516351b72d603230f774fcf79babe3b480cfc6c050fb3549" "4939c82993d7b67a63c5fff3339946209dec7f857842b689d7f94fcbb3097f12" "42a271e747d9a7d03fcaa7041fef43563fb8ce0320e6e1373869aa8171cec8d9" "a4fcd165b62dd763638cfa21ac27dedc07c8703e3466b155293f597b0063936e" "d62d23da24aacd68839ae9f1e5e1e3a3516b6ecf990f6e9b27c791c68837c500" "f131a168e3b346a9ce44c8b88779fe3d6ab38053951f4559e28384b10a562f8e" "c74e83f8aa4c78a121b52146eadb792c9facc5b1f02c917e3dbb454fca931223" "84d2f9eeb3f82d619ca4bfffe5f157282f4779732f48a5ac1484d94d5ff5b279" "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" "b9e9ba5aeedcc5ba8be99f1cc9301f6679912910ff92fdf7980929c2fc83ab4d" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "28ec8ccf6190f6a73812df9bc91df54ce1d6132f18b4c8fcc85d45298569eb53" "ff7625ad8aa2615eae96d6b4469fcc7d3d20b2e1ebc63b761a349bebbb9d23cb" default)))
+    ("d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "a8245b7cc985a0610d71f9852e9f2767ad1b852c2bdea6f4aadc12cce9c4d6d0" "2a739405edf418b8581dcd176aaf695d319f99e3488224a3c495cb0f9fd814e3" "041939941dbf5df4516351b72d603230f774fcf79babe3b480cfc6c050fb3549" "4939c82993d7b67a63c5fff3339946209dec7f857842b689d7f94fcbb3097f12" "42a271e747d9a7d03fcaa7041fef43563fb8ce0320e6e1373869aa8171cec8d9" "a4fcd165b62dd763638cfa21ac27dedc07c8703e3466b155293f597b0063936e" "d62d23da24aacd68839ae9f1e5e1e3a3516b6ecf990f6e9b27c791c68837c500" "f131a168e3b346a9ce44c8b88779fe3d6ab38053951f4559e28384b10a562f8e" "c74e83f8aa4c78a121b52146eadb792c9facc5b1f02c917e3dbb454fca931223" "84d2f9eeb3f82d619ca4bfffe5f157282f4779732f48a5ac1484d94d5ff5b279" "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" "b9e9ba5aeedcc5ba8be99f1cc9301f6679912910ff92fdf7980929c2fc83ab4d" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "28ec8ccf6190f6a73812df9bc91df54ce1d6132f18b4c8fcc85d45298569eb53" "ff7625ad8aa2615eae96d6b4469fcc7d3d20b2e1ebc63b761a349bebbb9d23cb" default)))
  '(fci-rule-color "#14151E")
  '(inhibit-startup-screen t)
  '(package-selected-packages
    (quote
-    (magit-gitflow flycheck-clojure flycheck smart-mode-line-powerline-theme smart-mode-line ivy-rich use-package helm flx dracula-theme bm magit lispy web-mode neotree parinfer kibit-helper cloc ac-cider undo-tree smex projectile paxedit markdown-mode groovy-mode git-gutter company clojure-mode-extra-font-locking clj-refactor cider-eval-sexp-fu auto-highlight-symbol aggressive-indent adoc-mode)))
+    (counsel ivy-hydra ivy flycheck-pos-tip git-timemachine hungry-delete solarized-theme zenburn-theme counsel-projectile magit-gitflow flycheck-clojure flycheck smart-mode-line-powerline-theme smart-mode-line ivy-rich use-package flx dracula-theme bm magit lispy web-mode neotree parinfer kibit-helper cloc ac-cider undo-tree smex projectile paxedit markdown-mode groovy-mode git-gutter company clojure-mode-extra-font-locking clj-refactor cider-eval-sexp-fu auto-highlight-symbol aggressive-indent adoc-mode)))
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
    (quote
@@ -134,7 +135,8 @@
 
 
 
-(require 'diminish)
+(use-package diminish
+  :ensure t)
 (require 'bind-key)
 
 ;; indentation
@@ -193,7 +195,8 @@
 ;;; CIDER stuff
 
 ;; cider cljs nRepl conf
-(require 'cider)
+(use-package cider
+  :ensure t)
 (setq cider-cljs-lein-repl
       "(do (user/run)
            (user/browser-repl))")
@@ -210,7 +213,9 @@
   :defer 5
   :config (global-company-mode))
 
-(global-git-gutter-mode +1)
+(use-package git-gutter
+  :ensure t
+  :config (global-git-gutter-mode +1))
 
 
 (add-hook 'clojure-mode-hook #'paredit-mode)
@@ -237,19 +242,25 @@
 (setq cider-repl-history-file "~/.emacs.d/cider-nrepl.history")
 (setq cider-prompt-for-symbol nil)
 
-(require 'clojure-mode-extra-font-locking)
+(use-package clojure-mode-extra-font-locking
+  :ensure t)
 
 ;; highlight words
-(require 'auto-highlight-symbol)
-(global-auto-highlight-symbol-mode t)
-(global-hl-line-mode)
-(auto-highlight-symbol-mode t)
+(use-package auto-highlight-symbol
+  :ensure t
+  :config (progn
+	    (global-auto-highlight-symbol-mode t)
+	    (global-hl-line-mode)
+	    (auto-highlight-symbol-mode t)))
 
 ;; undo tree
-(global-undo-tree-mode t)
+(use-package undo-tree
+  :ensure t
+  :config (global-undo-tree-mode t))
 
-(require 'clj-refactor)
-(setq cljr-warn-on-eval nil)
+(use-package clj-refactor
+  :ensure t
+  :config (setq cljr-warn-on-eval nil))
 
 ;; disable the broken below package
 ;;(require 'cider-eval-sexp-fu)
@@ -320,8 +331,10 @@
 (global-set-key (quote [f4]) 'copy-and-paste)
 
 ;; neotree
-(require 'neotree)
-(setq neo-smart-open t)
+(use-package neotree
+  :ensure t
+  :config (setq neo-smart-open t))
+
 (setq projectile-switch-project-action 'neotree-projectile-action)
 
 (defun neotree-project-dir ()
@@ -359,6 +372,7 @@
 ;;; Ivy
 
 (use-package ivy
+  :ensure t
   :demand t
   :diminish ivy-mode
   :load-path "site-lisp/site-ivy/swiper"
@@ -383,6 +397,7 @@
     :ensure t)
 
   (use-package ivy-rich
+    :ensure t
     :demand t
     :load-path "site-lisp/site-ivy/ivy-rich"
     :config
@@ -611,8 +626,9 @@
 
 ;; delete whitespace
 
-(require 'hungry-delete)
-(global-hungry-delete-mode)
+(use-package hungry-delete
+  :ensure t
+  :config (global-hungry-delete-mode))
 
 
 (use-package eldoc
