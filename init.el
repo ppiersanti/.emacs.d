@@ -711,6 +711,8 @@
   :config
   (add-hook 'magit-mode-hook 'turn-on-magit-gitflow))
 
+(use-package aggressive-indent
   :ensure t)
+
 (use-package paxedit
   :ensure t)
