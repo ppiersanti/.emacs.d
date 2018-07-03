@@ -205,9 +205,6 @@
 ;;      (figwheel-sidecar.repl-api/cljs-repl))"
 
 
-;;
-;;(require 'paxedit)
-
 (use-package company
   :ensure t
   :defer 5
@@ -714,4 +711,6 @@
   :config
   (add-hook 'magit-mode-hook 'turn-on-magit-gitflow))
 
+  :ensure t)
+(use-package paxedit
   :ensure t)
