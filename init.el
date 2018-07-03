@@ -716,3 +716,6 @@
 
 (use-package paxedit
   :ensure t)
+
+
+(put 'downcase-region 'disabled nil)
