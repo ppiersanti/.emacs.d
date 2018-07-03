@@ -684,7 +684,6 @@
     :load-path "site-lisp/site-ivy/counsel-projectile"
     :config
     (setq projectile-completion-system 'ivy)
-    (counsel-projectile-on)
     (define-key projectile-mode-map [remap projectile-ag]
       #'counsel-projectile-rg))
   (projectile-global-mode))
