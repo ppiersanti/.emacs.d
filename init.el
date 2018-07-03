@@ -552,9 +552,9 @@
          (add-hook 'vc-before-checkin-hook #'bm-buffer-save)
 
 
-         :bind (("<f2>" . bm-next)
-                ("S-<f2>" . bm-previous)
-                ("C-<f2>" . bm-toggle))
+         :bind (("<f4>" . bm-next)
+                ("S-<f4>" . bm-previous)
+                ("C-<f4>" . bm-toggle))
          )
 
 ;; from Howard
