@@ -393,16 +393,11 @@
 
   (use-package ivy-rich
     :ensure t
-    :demand t
-    :load-path "site-lisp/site-ivy/ivy-rich"
-    :config
-    (ivy-set-display-transformer 'ivy-switch-buffer
-                                 'ivy-rich-switch-buffer-transformer)
-    (setq ivy-virtual-abbreviate 'full
-          ivy-rich-switch-buffer-align-virtual-buffer t)
-    (setq ivy-rich-path-style 'abbrev))
+    :after (:all ivy counsel)
+    :init (setq ivy-rich-parse-remote-file-path t)
+    :config (ivy-rich-mode 1))
 
-  (use-package swiper
+    (use-package swiper
     :demand t
     :load-path "site-lisp/ivy/swiper"
     :bind (("C-s" . swiper)
