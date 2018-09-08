@@ -234,7 +234,7 @@
 (setq cider-prompt-save-file-on-load 'always-save)
 
 (setq cider-test-show-report-on-success t)
-(setq cider-repl-history-file "~/.emacs.d/cider-nrepl.history")
+(setq cider-repl-history-file ".cider-nrepl.history")
 (setq cider-prompt-for-symbol nil)
 
 (use-package clojure-mode-extra-font-locking
