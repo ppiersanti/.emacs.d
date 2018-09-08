@@ -278,7 +278,7 @@
 	  '(lambda () (add-hook 'after-save-hook
 				'(lambda ()
 				   (if (and (boundp 'cider-mode) cider-mode)
-				       (cider-refresh))))))
+				       (cider-ns-refresh))))))
 
 (defun cider-namespace-refresh ()
   (interactive)
