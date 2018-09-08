@@ -664,12 +664,22 @@
   :ensure t
   :init (global-flycheck-mode)
   :config
-  (use-package flycheck-clojure
-    :ensure t
-    :config (flycheck-clojure-setup)
-    (use-package flycheck-pos-tip
-    :ensure t
-    :config (setq flycheck-display-errors-function #'flycheck-pos-tip-error-messages))))
+  ;(use-package flycheck-clojure
+  ;  :ensure t
+  ;  :config (flycheck-clojure-setup)
+  ;  (use-package flycheck-pos-tip
+  ;  :ensure t
+					;  :config (setq flycheck-display-errors-function #'flycheck-pos-tip-error-messages))))
+  )
+
+;; (use-package flycheck-clojure
+;;   :ensure t
+;;   :after flycheck
+;;   :config (flycheck-clojure-setup))
+
+(use-package flycheck-pos-tip
+  :ensure t)
+
 
 (use-package projectile
   :load-path "site-lisp/projectile"
