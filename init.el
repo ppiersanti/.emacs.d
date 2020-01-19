@@ -100,16 +100,95 @@
    ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
  '(cider-repl-use-pretty-printing t)
  '(cljr-favor-prefix-notation t)
+ '(company-quickhelp-color-background "#4F4F4F")
+ '(company-quickhelp-color-foreground "#DCDCCC")
  '(cua-mode t nil (cua-base))
  '(custom-enabled-themes (quote (gon)))
  '(custom-safe-themes
    (quote
-    ("d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "a8245b7cc985a0610d71f9852e9f2767ad1b852c2bdea6f4aadc12cce9c4d6d0" "2a739405edf418b8581dcd176aaf695d319f99e3488224a3c495cb0f9fd814e3" "041939941dbf5df4516351b72d603230f774fcf79babe3b480cfc6c050fb3549" "4939c82993d7b67a63c5fff3339946209dec7f857842b689d7f94fcbb3097f12" "42a271e747d9a7d03fcaa7041fef43563fb8ce0320e6e1373869aa8171cec8d9" "a4fcd165b62dd763638cfa21ac27dedc07c8703e3466b155293f597b0063936e" "d62d23da24aacd68839ae9f1e5e1e3a3516b6ecf990f6e9b27c791c68837c500" "f131a168e3b346a9ce44c8b88779fe3d6ab38053951f4559e28384b10a562f8e" "c74e83f8aa4c78a121b52146eadb792c9facc5b1f02c917e3dbb454fca931223" "84d2f9eeb3f82d619ca4bfffe5f157282f4779732f48a5ac1484d94d5ff5b279" "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" "b9e9ba5aeedcc5ba8be99f1cc9301f6679912910ff92fdf7980929c2fc83ab4d" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "28ec8ccf6190f6a73812df9bc91df54ce1d6132f18b4c8fcc85d45298569eb53" "ff7625ad8aa2615eae96d6b4469fcc7d3d20b2e1ebc63b761a349bebbb9d23cb" default)))
+    ("47afd772d3e59ea0a509c73e49547c5b19185d8fb640ab2bede9b54324d55fc5" "54f2d1fcc9bcadedd50398697618f7c34aceb9966a6cbaa99829eb64c0c1f3ca" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "a8245b7cc985a0610d71f9852e9f2767ad1b852c2bdea6f4aadc12cce9c4d6d0" "2a739405edf418b8581dcd176aaf695d319f99e3488224a3c495cb0f9fd814e3" "041939941dbf5df4516351b72d603230f774fcf79babe3b480cfc6c050fb3549" "4939c82993d7b67a63c5fff3339946209dec7f857842b689d7f94fcbb3097f12" "42a271e747d9a7d03fcaa7041fef43563fb8ce0320e6e1373869aa8171cec8d9" "a4fcd165b62dd763638cfa21ac27dedc07c8703e3466b155293f597b0063936e" "d62d23da24aacd68839ae9f1e5e1e3a3516b6ecf990f6e9b27c791c68837c500" "f131a168e3b346a9ce44c8b88779fe3d6ab38053951f4559e28384b10a562f8e" "c74e83f8aa4c78a121b52146eadb792c9facc5b1f02c917e3dbb454fca931223" "84d2f9eeb3f82d619ca4bfffe5f157282f4779732f48a5ac1484d94d5ff5b279" "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" "b9e9ba5aeedcc5ba8be99f1cc9301f6679912910ff92fdf7980929c2fc83ab4d" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "28ec8ccf6190f6a73812df9bc91df54ce1d6132f18b4c8fcc85d45298569eb53" "ff7625ad8aa2615eae96d6b4469fcc7d3d20b2e1ebc63b761a349bebbb9d23cb" default)))
  '(fci-rule-color "#14151E")
  '(inhibit-startup-screen t)
+ '(nrepl-message-colors
+   (quote
+    ("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3")))
  '(package-selected-packages
    (quote
-    (sr-speedbar yasnippet-snippets markdown-mode+ visual-regexp-steroids visual-regexp ace-window powerline f cider diminish cl-lib aggressive-indent-mode counsel ivy-hydra ivy flycheck-pos-tip git-timemachine hungry-delete solarized-theme zenburn-theme counsel-projectile magit-gitflow flycheck-clojure flycheck smart-mode-line-powerline-theme smart-mode-line ivy-rich use-package flx dracula-theme bm magit web-mode neotree parinfer kibit-helper cloc ac-cider undo-tree smex projectile paxedit markdown-mode groovy-mode git-gutter company clojure-mode-extra-font-locking clj-refactor cider-eval-sexp-fu auto-highlight-symbol aggressive-indent adoc-mode)))
+    (treemacs-icons-dired treemacs-projectile treemacs treemacs-magit rainbow-delimiters iedit sr-speedbar yasnippet-snippets markdown-mode+ visual-regexp-steroids visual-regexp ace-window powerline f cider diminish cl-lib aggressive-indent-mode counsel ivy-hydra ivy flycheck-pos-tip git-timemachine hungry-delete solarized-theme zenburn-theme counsel-projectile magit-gitflow flycheck-clojure flycheck smart-mode-line-powerline-theme smart-mode-line ivy-rich use-package flx dracula-theme bm magit web-mode neotree parinfer kibit-helper cloc ac-cider undo-tree smex projectile paxedit markdown-mode groovy-mode git-gutter company clojure-mode-extra-font-locking clj-refactor cider-eval-sexp-fu auto-highlight-symbol aggressive-indent adoc-mode)))
+ '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
+ '(sml/mode-width
+   (quote
+    (if
+	(eq
+	 (powerline-current-separator)
+	 (quote arrow))
+	(quote right)
+      (quote full))))
+ '(sml/pos-id-separator
+   (quote
+    (quote
+     (""
+      (:propertize " " face powerline-active1)
+      (:eval
+       (propertize " "
+		   (quote display)
+		   (funcall
+		    (intern
+		     (format "powerline-%s-%s"
+			     (powerline-current-separator)
+			     (car powerline-default-separator-dir)))
+		    (quote powerline-active1)
+		    (quote powerline-active2))))
+      (:propertize " " face powerline-active2)))))
+ '(sml/pos-minor-modes-separator
+   (quote
+    (quote
+     (""
+      (:propertize " " face powerline-active1)
+      (:eval
+       (propertize " "
+		   (quote display)
+		   (funcall
+		    (intern
+		     (format "powerline-%s-%s"
+			     (powerline-current-separator)
+			     (cdr powerline-default-separator-dir)))
+		    (quote powerline-active1)
+		    (quote sml/global))))
+      (:propertize " " face sml/global)))))
+ '(sml/pre-id-separator
+   (quote
+    (quote
+     (""
+      (:propertize " " face sml/global)
+      (:eval
+       (propertize " "
+		   (quote display)
+		   (funcall
+		    (intern
+		     (format "powerline-%s-%s"
+			     (powerline-current-separator)
+			     (car powerline-default-separator-dir)))
+		    (quote sml/global)
+		    (quote powerline-active1))))
+      (:propertize " " face powerline-active1)))))
+ '(sml/pre-minor-modes-separator
+   (quote
+    (quote
+     (""
+      (:propertize " " face powerline-active2)
+      (:eval
+       (propertize " "
+		   (quote display)
+		   (funcall
+		    (intern
+		     (format "powerline-%s-%s"
+			     (powerline-current-separator)
+			     (cdr powerline-default-separator-dir)))
+		    (quote powerline-active2)
+		    (quote powerline-active1))))
+      (:propertize " " face powerline-active1)))))
+ '(sml/pre-modes-separator (quote (propertize " " (quote face) (quote sml/modes))))
  '(sr-speedbar-right-side nil)
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
@@ -235,7 +314,7 @@
 (setq cider-prompt-save-file-on-load 'always-save)
 
 (setq cider-test-show-report-on-success t)
-(setq cider-repl-history-file ".cider-nrepl.history")
+(setq cider-repl-history-size 1000)
 (setq cider-prompt-for-symbol nil)
 
 (use-package clojure-mode-extra-font-locking
@@ -260,6 +339,13 @@
 
 ;; disable the broken below package
 ;;(require 'cider-eval-sexp-fu)
+
+(use-package rainbow-delimiters
+  :ensure t
+  :hook
+  ((prog-mode cider-repl-mode) . rainbow-delimiters-mode))
+
+
 
 (defun my-clojure-mode-hook ()
   (clj-refactor-mode 1)
@@ -303,7 +389,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(region ((t (:background "gold" :distant-foreground "gtk_selection_fg_color")))))
 
 
 
@@ -586,9 +672,7 @@
        powerline-display-buffer-size nil
        powerline-display-hud nil
        powerline-display-mule-info nil
-       powerline-gui-use-vcs-glyph t
-       powerline-inactive1 '((t (:background "grey11" :foreground "#c5c8c6")))
-      powerline-inactive2 '((t (:background "grey20" :foreground "#c5c8c6")))))
+       powerline-gui-use-vcs-glyph t))
 
 (use-package ace-window
  :ensure t
@@ -724,3 +808,93 @@
 
 
 (put 'downcase-region 'disabled nil)
+
+;; treemacs
+
+(use-package treemacs
+  :ensure t
+  :defer t
+  :init
+  (with-eval-after-load 'winum
+    (define-key winum-keymap (kbd "M-0") #'treemacs-select-window))
+  :config
+  (progn
+    (setq treemacs-collapse-dirs                 (if treemacs-python-executable 3 0)
+          treemacs-deferred-git-apply-delay      0.5
+          treemacs-display-in-side-window        t
+          treemacs-eldoc-display                 t
+          treemacs-file-event-delay              5000
+          treemacs-file-extension-regex          treemacs-last-period-regex-value
+          treemacs-file-follow-delay             0.2
+          treemacs-follow-after-init             t
+          treemacs-git-command-pipe              ""
+          treemacs-goto-tag-strategy             'refetch-index
+          treemacs-indentation                   2
+          treemacs-indentation-string            " "
+          treemacs-is-never-other-window         nil
+          treemacs-max-git-entries               5000
+          treemacs-missing-project-action        'ask
+          treemacs-no-png-images                 nil
+          treemacs-no-delete-other-windows       t
+          treemacs-project-follow-cleanup        nil
+          treemacs-persist-file                  (expand-file-name ".cache/treemacs-persist" user-emacs-directory)
+          treemacs-position                      'left
+          treemacs-recenter-distance             0.1
+          treemacs-recenter-after-file-follow    nil
+          treemacs-recenter-after-tag-follow     nil
+          treemacs-recenter-after-project-jump   'always
+          treemacs-recenter-after-project-expand 'on-distance
+          treemacs-show-cursor                   nil
+          treemacs-show-hidden-files             t
+          treemacs-silent-filewatch              nil
+          treemacs-silent-refresh                nil
+          treemacs-sorting                       'alphabetic-desc
+          treemacs-space-between-root-nodes      t
+          treemacs-tag-follow-cleanup            t
+          treemacs-tag-follow-delay              1.5
+          treemacs-width                         35)
+
+    ;; The default width and height of the icons is 22 pixels. If you are
+    ;; using a Hi-DPI display, uncomment this to double the icon size.
+    ;;(treemacs-resize-icons 44)
+
+    (treemacs-follow-mode t)
+    (treemacs-filewatch-mode t)
+    (treemacs-fringe-indicator-mode t)
+    (pcase (cons (not (null (executable-find "git")))
+                 (not (null treemacs-python-executable)))
+      (`(t . t)
+       (treemacs-git-mode 'deferred))
+      (`(t . _)
+       (treemacs-git-mode 'simple))))
+  :bind
+  (:map global-map
+        ("M-0"       . treemacs-select-window)
+        ("C-x t 1"   . treemacs-delete-other-windows)
+        ("C-x t t"   . treemacs)
+        ("C-x t B"   . treemacs-bookmark)
+        ("C-x t C-t" . treemacs-find-file)
+        ("C-x t M-t" . treemacs-find-tag)))
+
+(use-package treemacs-projectile
+  :after treemacs projectile
+  :ensure t)
+
+(use-package treemacs-icons-dired
+  :after treemacs dired
+  :ensure t
+  :config (treemacs-icons-dired-mode))
+
+(use-package treemacs-magit
+  :after treemacs magit
+  :ensure t)
+
+
+;; Fun
+
+(defun comment-sexp ()
+  "Comment out the sexp at point."
+  (interactive)
+  (save-excursion
+    (insert "#_")))
+(define-key paredit-mode-map (kbd "C-#") 'comment-sexp)
