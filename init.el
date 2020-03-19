@@ -114,7 +114,7 @@
     ("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3")))
  '(package-selected-packages
    (quote
-    (treemacs-icons-dired treemacs-projectile treemacs treemacs-magit rainbow-delimiters iedit sr-speedbar yasnippet-snippets markdown-mode+ visual-regexp-steroids visual-regexp ace-window powerline f cider diminish cl-lib aggressive-indent-mode counsel ivy-hydra ivy flycheck-pos-tip git-timemachine hungry-delete solarized-theme zenburn-theme counsel-projectile magit-gitflow flycheck-clojure flycheck smart-mode-line-powerline-theme smart-mode-line ivy-rich use-package flx dracula-theme bm magit web-mode neotree parinfer kibit-helper cloc ac-cider undo-tree smex projectile paxedit markdown-mode groovy-mode git-gutter company clojure-mode-extra-font-locking clj-refactor cider-eval-sexp-fu auto-highlight-symbol aggressive-indent adoc-mode)))
+    (groovy treemacs-icons-dired treemacs-projectile treemacs treemacs-magit rainbow-delimiters iedit sr-speedbar yasnippet-snippets markdown-mode+ visual-regexp-steroids visual-regexp ace-window powerline f cider diminish cl-lib aggressive-indent-mode counsel ivy-hydra ivy flycheck-pos-tip git-timemachine hungry-delete solarized-theme zenburn-theme counsel-projectile magit-gitflow flycheck-clojure flycheck smart-mode-line-powerline-theme smart-mode-line ivy-rich use-package flx dracula-theme bm magit web-mode neotree parinfer kibit-helper cloc ac-cider undo-tree smex projectile paxedit markdown-mode groovy-mode git-gutter company clojure-mode-extra-font-locking clj-refactor cider-eval-sexp-fu auto-highlight-symbol aggressive-indent adoc-mode)))
  '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
  '(sml/mode-width
    (quote
@@ -344,6 +344,11 @@
   :ensure t
   :hook
   ((prog-mode cider-repl-mode) . rainbow-delimiters-mode))
+
+(use-package yasnippet
+  :ensure t
+  :config
+  (yas-global-mode 1))
 
 
 
@@ -888,6 +893,10 @@
 (use-package treemacs-magit
   :after treemacs magit
   :ensure t)
+
+(use-package groovy-mode
+  :ensure t
+  :mode "\\.groovy\\'\\|\\.gradle\\'")
 
 
 ;; Fun
