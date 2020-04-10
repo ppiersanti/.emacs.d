@@ -906,3 +906,8 @@
   (save-excursion
     (insert "#_")))
 (define-key paredit-mode-map (kbd "C-#") 'comment-sexp)
+
+;; rebind C-M-@ to work through terminal
+;(global-set-key (kbd "C-M-SPC") 'mark-sexp)
+(define-key input-decode-map " " [C-M-@])
+(global-set-key (quote [C-M-@]) 'mark-sexp)
