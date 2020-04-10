@@ -433,7 +433,7 @@
 ;; copy and paste form
 (fset 'copy-and-paste
       [?\C-\M-  ?\M-w ?\C-\M-f return return ?\C-y])
-(global-set-key (quote [f4]) 'copy-and-paste)
+(global-set-key (quote [f5]) 'copy-and-paste)
 
 
 
