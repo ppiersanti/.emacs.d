@@ -131,7 +131,7 @@
     ("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3")))
  '(package-selected-packages
    (quote
-    (groovy treemacs-icons-dired treemacs-projectile treemacs treemacs-magit rainbow-delimiters iedit sr-speedbar yasnippet-snippets markdown-mode+ visual-regexp-steroids visual-regexp ace-window powerline f cider diminish cl-lib aggressive-indent-mode counsel ivy-hydra ivy flycheck-pos-tip git-timemachine hungry-delete solarized-theme zenburn-theme counsel-projectile magit-gitflow flycheck-clojure flycheck smart-mode-line-powerline-theme smart-mode-line ivy-rich use-package flx dracula-theme bm magit web-mode neotree parinfer kibit-helper cloc ac-cider undo-tree smex projectile paxedit markdown-mode groovy-mode git-gutter company clojure-mode-extra-font-locking clj-refactor cider-eval-sexp-fu auto-highlight-symbol aggressive-indent adoc-mode)))
+    (spacemacs-theme groovy treemacs-icons-dired treemacs-projectile treemacs treemacs-magit rainbow-delimiters iedit sr-speedbar yasnippet-snippets markdown-mode+ visual-regexp-steroids visual-regexp ace-window powerline f cider diminish cl-lib aggressive-indent-mode counsel ivy-hydra ivy flycheck-pos-tip git-timemachine hungry-delete solarized-theme zenburn-theme counsel-projectile magit-gitflow flycheck-clojure flycheck smart-mode-line-powerline-theme smart-mode-line ivy-rich use-package flx dracula-theme bm magit web-mode parinfer kibit-helper cloc ac-cider undo-tree smex projectile paxedit markdown-mode groovy-mode git-gutter company clojure-mode-extra-font-locking clj-refactor cider-eval-sexp-fu auto-highlight-symbol aggressive-indent adoc-mode)))
  '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
  '(sml/mode-width
    (quote
@@ -435,26 +435,7 @@
       [?\C-\M-  ?\M-w ?\C-\M-f return return ?\C-y])
 (global-set-key (quote [f4]) 'copy-and-paste)
 
-;; neotree
-(use-package neotree
-  :ensure t
-  :config (setq neo-smart-open t))
 
-(setq projectile-switch-project-action 'neotree-projectile-action)
-
-(defun neotree-project-dir ()
-    "Open NeoTree using the git root."
-    (interactive)
-    (let ((project-dir (projectile-project-root))
-          (file-name (buffer-file-name)))
-      (neotree-toggle)
-      (if project-dir
-          (if (neo-global--window-exists-p)
-              (progn
-                (neotree-dir project-dir)
-                (neotree-find file-name)))
-        (message "Could not find git project root."))))
-(global-set-key [f8] 'neotree-project-dir)
 
 (setq org-confirm-babel-evaluate nil)
 (setq org-export-babel-evaluate nil)
