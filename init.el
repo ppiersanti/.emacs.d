@@ -897,6 +897,8 @@
   :ensure t
   :mode "\\.groovy\\'\\|\\.gradle\\'")
 
+(use-package hideshow
+  :hook ((prog-mode . hs-minor-mode)))
 
 ;; Fun
 
