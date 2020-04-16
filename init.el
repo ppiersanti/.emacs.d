@@ -6,6 +6,9 @@
 (setq column-number-mode t)
 (setq transient-mark-mode t)
 (setq sml/no-confirm-load-theme t)
+(setq auto-package-update-delete-old-versions t)
+
+
 
 (global-set-key (quote [f2]) 'dabbrev-expand)
 (global-set-key (quote [f3]) 'dabbrev-completion)
