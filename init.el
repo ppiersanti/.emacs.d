@@ -747,25 +747,20 @@
   :ensure t)
 
 ;; flyccheck clojure
+(use-package flycheck-clojure
+  :defer t
+  :commands (flycheck-clojure-setup)               ;; autoload
+  :config
+  (eval-after-load 'flycheck
+    '(setq flycheck-display-errors-function #'flycheck-pos-tip-error-messages))
+  (add-hook 'after-init-hook #'global-flycheck-mode))
+
 (use-package flycheck
   :ensure t
-  :init (global-flycheck-mode)
-  :config
-  ;(use-package flycheck-clojure
-  ;  :ensure t
-  ;  :config (flycheck-clojure-setup)
-  ;  (use-package flycheck-pos-tip
-  ;  :ensure t
-					;  :config (setq flycheck-display-errors-function #'flycheck-pos-tip-error-messages))))
-  )
+  :init (global-flycheck-mode))
 
-;; (use-package flycheck-clojure
-;;   :ensure t
-;;   :after flycheck
-;;   :config (flycheck-clojure-setup))
-
-(use-package flycheck-pos-tip
-  :ensure t)
+(use-package flycheck-pos-tip :ensure t
+  :after flycheck)
 
 
 (use-package projectile
