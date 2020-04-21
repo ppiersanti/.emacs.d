@@ -296,7 +296,10 @@
 
 ;; cider cljs nRepl conf
 (use-package cider
-  :ensure t)
+  :ensure t
+  :defer t
+  :config (flycheck-clojure-setup))
+
 (setq cider-cljs-lein-repl
       "(do (user/run)
            (user/browser-repl))")
