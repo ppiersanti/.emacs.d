@@ -389,11 +389,11 @@
 (add-hook 'clojure-mode-hook #'my-clojure-mode-hook)
 (global-set-key (quote [F5]) 'cider-eval-last-sexp)
 
-(add-hook 'cider-mode-hook
-	  '(lambda () (add-hook 'after-save-hook
-				'(lambda ()
-				   (if (and (boundp 'cider-mode) cider-mode)
-				       (cider-ns-refresh))))))
+;; (add-hook 'cider-mode-hook
+;; 	  '(lambda () (add-hook 'after-save-hook
+;; 				'(lambda ()
+;; 				   (if (and (boundp 'cider-mode) cider-mode)
+;; 				       (cider-ns-refresh))))))
 
 (defun cider-namespace-refresh ()
   (interactive)
