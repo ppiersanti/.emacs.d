@@ -387,7 +387,7 @@
   (cider-run))
 
 (add-hook 'clojure-mode-hook #'my-clojure-mode-hook)
-(global-set-key (quote [F5]) 'cider-run)
+(global-set-key (quote [F5]) 'cider-eval-last-sexp)
 
 (add-hook 'cider-mode-hook
 	  '(lambda () (add-hook 'after-save-hook
