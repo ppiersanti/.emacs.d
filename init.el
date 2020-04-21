@@ -6,6 +6,9 @@
 (setq column-number-mode t)
 (setq transient-mark-mode t)
 (setq sml/no-confirm-load-theme t)
+(setq auto-package-update-delete-old-versions t)
+
+
 
 (global-set-key (quote [f2]) 'dabbrev-expand)
 (global-set-key (quote [f3]) 'dabbrev-completion)
@@ -105,45 +108,35 @@
  '(company-quickhelp-color-background "#4F4F4F")
  '(company-quickhelp-color-foreground "#DCDCCC")
  '(cua-mode t nil (cua-base))
- '(cua-normal-cursor-color "#657b83")
- '(cua-overwrite-cursor-color "#b58900")
- '(cua-read-only-cursor-color "#859900")
- '(custom-enabled-themes (quote (gon)))
+ '(custom-enabled-themes (quote (tsdh-light)))
  '(custom-safe-themes
    (quote
-    ("47afd772d3e59ea0a509c73e49547c5b19185d8fb640ab2bede9b54324d55fc5" "54f2d1fcc9bcadedd50398697618f7c34aceb9966a6cbaa99829eb64c0c1f3ca" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "a8245b7cc985a0610d71f9852e9f2767ad1b852c2bdea6f4aadc12cce9c4d6d0" "2a739405edf418b8581dcd176aaf695d319f99e3488224a3c495cb0f9fd814e3" "041939941dbf5df4516351b72d603230f774fcf79babe3b480cfc6c050fb3549" "4939c82993d7b67a63c5fff3339946209dec7f857842b689d7f94fcbb3097f12" "42a271e747d9a7d03fcaa7041fef43563fb8ce0320e6e1373869aa8171cec8d9" "a4fcd165b62dd763638cfa21ac27dedc07c8703e3466b155293f597b0063936e" "d62d23da24aacd68839ae9f1e5e1e3a3516b6ecf990f6e9b27c791c68837c500" "f131a168e3b346a9ce44c8b88779fe3d6ab38053951f4559e28384b10a562f8e" "c74e83f8aa4c78a121b52146eadb792c9facc5b1f02c917e3dbb454fca931223" "84d2f9eeb3f82d619ca4bfffe5f157282f4779732f48a5ac1484d94d5ff5b279" "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" "b9e9ba5aeedcc5ba8be99f1cc9301f6679912910ff92fdf7980929c2fc83ab4d" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "28ec8ccf6190f6a73812df9bc91df54ce1d6132f18b4c8fcc85d45298569eb53" "ff7625ad8aa2615eae96d6b4469fcc7d3d20b2e1ebc63b761a349bebbb9d23cb" default)))
+    ("bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "2749f19d8f104565184ff2217e10152e9e3cbe32a130dec1a51b9e0fed82a4b1" "cc64e1b1faaf38d66ee881d051de86560f339c791d9c497e7930897ce1afa201" "5db27426ade741abaf25f5347abe92b1d505adef7c974d2ab2648a664d14f867" "84d2f9eeb3f82d619ca4bfffe5f157282f4779732f48a5ac1484d94d5ff5b279" "a7051d761a713aaf5b893c90eaba27463c791cd75d7257d3a8e66b0c8c346e77" "041939941dbf5df4516351b72d603230f774fcf79babe3b480cfc6c050fb3549" "2ec562753a7cce26ab21fb6de28b77c57eaaa118d79cac8a19640239357a5f11" "b9e9ba5aeedcc5ba8be99f1cc9301f6679912910ff92fdf7980929c2fc83ab4d" "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" "47afd772d3e59ea0a509c73e49547c5b19185d8fb640ab2bede9b54324d55fc5" "c74e83f8aa4c78a121b52146eadb792c9facc5b1f02c917e3dbb454fca931223" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" "2cbe4065741d4e20c0d872003315b37939d0ed943a91e6cf4004047dc7df0118" default)))
  '(fci-rule-color "#14151E")
- '(highlight-changes-colors (quote ("#d33682" "#6c71c4")))
- '(highlight-symbol-colors
-   (--map
-    (solarized-color-blend it "#fdf6e3" 0.25)
-    (quote
-     ("#b58900" "#2aa198" "#dc322f" "#6c71c4" "#859900" "#cb4b16" "#268bd2"))))
- '(highlight-symbol-foreground-color "#586e75")
- '(highlight-tail-colors
+ '(hl-todo-keyword-faces
    (quote
-    (("#eee8d5" . 0)
-     ("#B4C342" . 20)
-     ("#69CABF" . 30)
-     ("#69B7F0" . 50)
-     ("#DEB542" . 60)
-     ("#F2804F" . 70)
-     ("#F771AC" . 85)
-     ("#eee8d5" . 100))))
- '(hl-bg-colors
-   (quote
-    ("#DEB542" "#F2804F" "#FF6E64" "#F771AC" "#9EA0E5" "#69B7F0" "#69CABF" "#B4C342")))
- '(hl-fg-colors
-   (quote
-    ("#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3")))
- '(hl-paren-colors (quote ("#2aa198" "#b58900" "#268bd2" "#6c71c4" "#859900")))
+    (("TODO" . "#dc752f")
+     ("NEXT" . "#dc752f")
+     ("THEM" . "#2aa198")
+     ("PROG" . "#268bd2")
+     ("OKAY" . "#268bd2")
+     ("DONT" . "#d70000")
+     ("FAIL" . "#d70000")
+     ("DONE" . "#86dc2f")
+     ("NOTE" . "#875f00")
+     ("KLUDGE" . "#875f00")
+     ("HACK" . "#875f00")
+     ("TEMP" . "#875f00")
+     ("FIXME" . "#dc752f")
+     ("XXX+" . "#dc752f")
+     ("\\?\\?\\?+" . "#dc752f"))))
  '(inhibit-startup-screen t)
  '(nrepl-message-colors
    (quote
     ("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3")))
  '(package-selected-packages
    (quote
-    (treemacs-icons-dired treemacs-projectile treemacs treemacs-magit rainbow-delimiters iedit sr-speedbar yasnippet-snippets markdown-mode+ visual-regexp-steroids visual-regexp ace-window powerline f cider diminish cl-lib aggressive-indent-mode counsel ivy-hydra ivy flycheck-pos-tip git-timemachine hungry-delete solarized-theme zenburn-theme counsel-projectile magit-gitflow flycheck-clojure flycheck smart-mode-line-powerline-theme smart-mode-line ivy-rich use-package flx dracula-theme bm magit web-mode neotree parinfer kibit-helper cloc ac-cider undo-tree smex projectile paxedit markdown-mode groovy-mode git-gutter company clojure-mode-extra-font-locking clj-refactor cider-eval-sexp-fu auto-highlight-symbol aggressive-indent adoc-mode)))
+    (spacemacs-theme groovy treemacs-icons-dired treemacs-projectile treemacs treemacs-magit rainbow-delimiters iedit sr-speedbar yasnippet-snippets markdown-mode+ visual-regexp-steroids visual-regexp ace-window powerline f cider diminish cl-lib aggressive-indent-mode counsel ivy-hydra ivy flycheck-pos-tip git-timemachine hungry-delete solarized-theme zenburn-theme counsel-projectile magit-gitflow flycheck-clojure flycheck smart-mode-line-powerline-theme smart-mode-line ivy-rich use-package flx dracula-theme bm magit web-mode parinfer kibit-helper cloc ac-cider undo-tree smex projectile paxedit markdown-mode groovy-mode git-gutter company clojure-mode-extra-font-locking clj-refactor cider-eval-sexp-fu auto-highlight-symbol aggressive-indent adoc-mode)))
  '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
  '(sml/mode-width
    (quote
@@ -315,7 +308,10 @@
 
 ;; cider cljs nRepl conf
 (use-package cider
-  :ensure t)
+  :ensure t
+  :defer t
+  :config (flycheck-clojure-setup))
+
 (setq cider-cljs-lein-repl
       "(do (user/run)
 	   (user/browser-repl))")
@@ -394,6 +390,11 @@
   :hook
   ((prog-mode cider-repl-mode) . rainbow-delimiters-mode))
 
+(use-package yasnippet
+  :ensure t
+  :config
+  (yas-global-mode 1))
+
 
 
 (defun my-clojure-mode-hook ()
@@ -408,13 +409,13 @@
   (cider-run))
 
 (add-hook 'clojure-mode-hook #'my-clojure-mode-hook)
-(global-set-key (quote [F5]) 'cider-run)
+(global-set-key (quote [F5]) 'cider-eval-last-sexp)
 
-(add-hook 'cider-mode-hook
-	  '(lambda () (add-hook 'after-save-hook
-				'(lambda ()
-				   (if (and (boundp 'cider-mode) cider-mode)
-				       (cider-ns-refresh))))))
+;; (add-hook 'cider-mode-hook
+;; 	  '(lambda () (add-hook 'after-save-hook
+;; 				'(lambda ()
+;; 				   (if (and (boundp 'cider-mode) cider-mode)
+;; 				       (cider-ns-refresh))))))
 
 (defun cider-namespace-refresh ()
   (interactive)
@@ -438,6 +439,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(hl-line ((t nil)))
  '(region ((t (:background "gold" :distant-foreground "gtk_selection_fg_color")))))
 
 
@@ -459,28 +461,9 @@
 ;; copy and paste form
 (fset 'copy-and-paste
       [?\C-\M-  ?\M-w ?\C-\M-f return return ?\C-y])
-(global-set-key (quote [f4]) 'copy-and-paste)
+(global-set-key (quote [f5]) 'copy-and-paste)
 
-;; neotree
-(use-package neotree
-  :ensure t
-  :config (setq neo-smart-open t))
 
-(setq projectile-switch-project-action 'neotree-projectile-action)
-
-(defun neotree-project-dir ()
-    "Open NeoTree using the git root."
-    (interactive)
-    (let ((project-dir (projectile-project-root))
-	  (file-name (buffer-file-name)))
-      (neotree-toggle)
-      (if project-dir
-	  (if (neo-global--window-exists-p)
-	      (progn
-		(neotree-dir project-dir)
-		(neotree-find file-name)))
-	(message "Could not find git project root."))))
-(global-set-key [f8] 'neotree-project-dir)
 
 (setq org-confirm-babel-evaluate nil)
 (setq org-export-babel-evaluate nil)
@@ -791,25 +774,20 @@
   :ensure t)
 
 ;; flyccheck clojure
+(use-package flycheck-clojure
+  :defer t
+  :commands (flycheck-clojure-setup)               ;; autoload
+  :config
+  (eval-after-load 'flycheck
+    '(setq flycheck-display-errors-function #'flycheck-pos-tip-error-messages))
+  (add-hook 'after-init-hook #'global-flycheck-mode))
+
 (use-package flycheck
   :ensure t
-  :init (global-flycheck-mode)
-  :config
-  ;(use-package flycheck-clojure
-  ;  :ensure t
-  ;  :config (flycheck-clojure-setup)
-  ;  (use-package flycheck-pos-tip
-  ;  :ensure t
-					;  :config (setq flycheck-display-errors-function #'flycheck-pos-tip-error-messages))))
-  )
+  :init (global-flycheck-mode))
 
-;; (use-package flycheck-clojure
-;;   :ensure t
-;;   :after flycheck
-;;   :config (flycheck-clojure-setup))
-
-(use-package flycheck-pos-tip
-  :ensure t)
+(use-package flycheck-pos-tip :ensure t
+  :after flycheck)
 
 
 (use-package projectile
@@ -940,6 +918,12 @@
   :after treemacs magit
   :ensure t)
 
+(use-package groovy-mode
+  :ensure t
+  :mode "\\.groovy\\'\\|\\.gradle\\'")
+
+(use-package hideshow
+  :hook ((prog-mode . hs-minor-mode)))
 
 ;; Fun
 
@@ -949,3 +933,11 @@
   (save-excursion
     (insert "#_")))
 (define-key paredit-mode-map (kbd "C-#") 'comment-sexp)
+
+;; rebind C-M-@ to work through terminal
+;(global-set-key (kbd "C-M-SPC") 'mark-sexp)
+(define-key input-decode-map " " [C-M-@])
+(global-set-key (quote [C-M-@]) 'mark-sexp)
+(define-key input-decode-map "[1;5S" [C-f4])
+
+(setq nrepl-log-messages t)
