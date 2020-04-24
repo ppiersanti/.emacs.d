@@ -338,6 +338,7 @@
 
 (setq cider-test-show-report-on-success t)
 (setq cider-repl-history-size 1000)
+(setq cider-repl-history-file ".cider-nrepl-history")
 (setq cider-prompt-for-symbol nil)
 
 (use-package clojure-mode-extra-font-locking
@@ -387,7 +388,7 @@
   (cider-run))
 
 (add-hook 'clojure-mode-hook #'my-clojure-mode-hook)
-(global-set-key (quote [F5]) 'cider-eval-last-sexp)
+(global-set-key (quote [f9]) 'cider-eval-last-sexp)
 
 ;; (add-hook 'cider-mode-hook
 ;; 	  '(lambda () (add-hook 'after-save-hook
@@ -437,10 +438,13 @@
 
 
 ;; copy and paste form
-(fset 'copy-and-paste
+(fset 'copy-and-paste-sexp
       [?\C-\M-  ?\M-w ?\C-\M-f return return ?\C-y])
-(global-set-key (quote [f5]) 'copy-and-paste)
+(global-set-key (quote [S-f5]) 'copy-and-paste-sexp)
 
+(fset 'copy-sexp
+      [?\C-\M-  ?\M-w ?\C-\M-f])
+(global-set-key (quote [f5]) 'copy-sexp)
 
 
 (setq org-confirm-babel-evaluate nil)
@@ -915,5 +919,3 @@
 (define-key input-decode-map " " [C-M-@])
 (global-set-key (quote [C-M-@]) 'mark-sexp)
 (define-key input-decode-map "[1;5S" [C-f4])
-
-(setq nrepl-log-messages t)
