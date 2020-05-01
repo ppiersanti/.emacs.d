@@ -950,4 +950,6 @@
 
 (load "remote-term.el")
 
+(load "misc.el")
+
 (setq nrepl-log-messages t)
