@@ -25,8 +25,8 @@
 
 (setq package-archives
       '(("gnu" . "http://elpa.gnu.org/packages/")
-	;;        ("melpa-stable" . "https://stable.melpa.org/packages/")
-	("melpa" . "https://melpa.org/packages/")))
+        ;;        ("melpa-stable" . "https://stable.melpa.org/packages/")
+        ("melpa" . "https://melpa.org/packages/")))
 (package-initialize)
 
 ;; Bootstrap `use-package'
@@ -78,14 +78,14 @@
 ;; map org file to org-mode
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 
-					;(setq visible-bell t)
+                                        ;(setq visible-bell t)
 (setq ring-bell-function
       (lambda ()
-	(unless (memq this-command)
-	  '(isearch-abort abort-recursive-edit
-			  exit-minibuffer keyboard-quit)
-	  (invert-face 'mode-line)
-	  (run-with-timer 0.1 nil 'invert-face 'mode-line))))
+        (unless (memq this-command)
+          '(isearch-abort abort-recursive-edit
+                          exit-minibuffer keyboard-quit)
+          (invert-face 'mode-line)
+          (run-with-timer 0.1 nil 'invert-face 'mode-line))))
 
 (display-time)
 
@@ -110,8 +110,6 @@
    [default default default italic underline success warning error])
  '(ansi-color-names-vector
    ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
- '(cider-repl-use-pretty-printing t)
- '(cljr-favor-prefix-notation t)
  '(company-quickhelp-color-background "#4F4F4F")
  '(company-quickhelp-color-foreground "#DCDCCC")
  '(compilation-message-face (quote default))
@@ -120,7 +118,7 @@
  '(custom-enabled-themes (quote (tomorrow-night-bright)))
  '(custom-safe-themes
    (quote
-    ("7f1263c969f04a8e58f9441f4ba4d7fb1302243355cb9faecb55aec878a06ee9" "1157a4055504672be1df1232bed784ba575c60ab44d8e6c7b3800ae76b42f8bd" "52588047a0fe3727e3cd8a90e76d7f078c9bd62c0b246324e557dfa5112e0d0c" "cf08ae4c26cacce2eebff39d129ea0a21c9d7bf70ea9b945588c1c66392578d1" "5ee12d8250b0952deefc88814cf0672327d7ee70b16344372db9460e9a0e3ffc" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "2749f19d8f104565184ff2217e10152e9e3cbe32a130dec1a51b9e0fed82a4b1" "cc64e1b1faaf38d66ee881d051de86560f339c791d9c497e7930897ce1afa201" "5db27426ade741abaf25f5347abe92b1d505adef7c974d2ab2648a664d14f867" "84d2f9eeb3f82d619ca4bfffe5f157282f4779732f48a5ac1484d94d5ff5b279" "a7051d761a713aaf5b893c90eaba27463c791cd75d7257d3a8e66b0c8c346e77" "041939941dbf5df4516351b72d603230f774fcf79babe3b480cfc6c050fb3549" "2ec562753a7cce26ab21fb6de28b77c57eaaa118d79cac8a19640239357a5f11" "b9e9ba5aeedcc5ba8be99f1cc9301f6679912910ff92fdf7980929c2fc83ab4d" "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" "47afd772d3e59ea0a509c73e49547c5b19185d8fb640ab2bede9b54324d55fc5" "c74e83f8aa4c78a121b52146eadb792c9facc5b1f02c917e3dbb454fca931223" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" "2cbe4065741d4e20c0d872003315b37939d0ed943a91e6cf4004047dc7df0118" default)))
+    ("99f33ab65f95eb115331717f17ec4d319a939ad7d77b1949498e60217233db0a" "bab3fe9d9a4195294b511bc15f9593b68c0584ee2c901cc0ea63450874634049" "2cdc13ef8c76a22daa0f46370011f54e79bae00d5736340a5ddfe656a767fddf" "2f1518e906a8b60fac943d02ad415f1d8b3933a5a7f75e307e6e9a26ef5bf570" "79278310dd6cacf2d2f491063c4ab8b129fee2a498e4c25912ddaa6c3c5b621e" "e1ef2d5b8091f4953fe17b4ca3dd143d476c106e221d92ded38614266cea3c8b" "7a994c16aa550678846e82edc8c9d6a7d39cc6564baaaacc305a3fdc0bd8725f" "730a87ed3dc2bf318f3ea3626ce21fb054cd3a1471dcd59c81a4071df02cb601" "93ed23c504b202cf96ee591138b0012c295338f38046a1f3c14522d4a64d7308" "71e5acf6053215f553036482f3340a5445aee364fb2e292c70d9175fb0cc8af7" "d74c5485d42ca4b7f3092e50db687600d0e16006d8fa335c69cf4f379dbd0eee" "be9645aaa8c11f76a10bcf36aaf83f54f4587ced1b9b679b55639c87404e2499" "9b272154fb77a926f52f2756ed5872877ad8d73d018a426d44c6083d1ed972b1" "632694fd8a835e85bcc8b7bb5c1df1a0164689bc6009864faed38a9142b97057" "a92e9da0fab90cbec4af4a2035602208cebf3d071ea547157b2bfc5d9bd4d48d" "3d3807f1070bb91a68d6638a708ee09e63c0825ad21809c87138e676a60bda5d" "912cac216b96560654f4f15a3a4d8ba47d9c604cbc3b04801e465fb67a0234f0" "d71aabbbd692b54b6263bfe016607f93553ea214bc1435d17de98894a5c3a086" "9b01a258b57067426cc3c8155330b0381ae0d8dd41d5345b5eddac69f40d409b" "fe94e2e42ccaa9714dd0f83a5aa1efeef819e22c5774115a9984293af609fce7" "bc836bf29eab22d7e5b4c142d201bcce351806b7c1f94955ccafab8ce5b20208" "d0fa4334234e97ece3d72d86e39a574f8256b4a8699a1fb5390c402892a1c024" "76c5b2592c62f6b48923c00f97f74bcb7ddb741618283bdb2be35f3c0e1030e3" "7f1263c969f04a8e58f9441f4ba4d7fb1302243355cb9faecb55aec878a06ee9" "1157a4055504672be1df1232bed784ba575c60ab44d8e6c7b3800ae76b42f8bd" "52588047a0fe3727e3cd8a90e76d7f078c9bd62c0b246324e557dfa5112e0d0c" "cf08ae4c26cacce2eebff39d129ea0a21c9d7bf70ea9b945588c1c66392578d1" "5ee12d8250b0952deefc88814cf0672327d7ee70b16344372db9460e9a0e3ffc" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "2749f19d8f104565184ff2217e10152e9e3cbe32a130dec1a51b9e0fed82a4b1" "cc64e1b1faaf38d66ee881d051de86560f339c791d9c497e7930897ce1afa201" "5db27426ade741abaf25f5347abe92b1d505adef7c974d2ab2648a664d14f867" "84d2f9eeb3f82d619ca4bfffe5f157282f4779732f48a5ac1484d94d5ff5b279" "a7051d761a713aaf5b893c90eaba27463c791cd75d7257d3a8e66b0c8c346e77" "041939941dbf5df4516351b72d603230f774fcf79babe3b480cfc6c050fb3549" "2ec562753a7cce26ab21fb6de28b77c57eaaa118d79cac8a19640239357a5f11" "b9e9ba5aeedcc5ba8be99f1cc9301f6679912910ff92fdf7980929c2fc83ab4d" "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" "47afd772d3e59ea0a509c73e49547c5b19185d8fb640ab2bede9b54324d55fc5" "c74e83f8aa4c78a121b52146eadb792c9facc5b1f02c917e3dbb454fca931223" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" "2cbe4065741d4e20c0d872003315b37939d0ed943a91e6cf4004047dc7df0118" default)))
  '(fci-rule-color "#14151E")
  '(hl-todo-keyword-faces
    (quote
@@ -140,20 +138,26 @@
      ("XXX+" . "#dc752f")
      ("\\?\\?\\?+" . "#dc752f"))))
  '(inhibit-startup-screen t)
+ '(jdee-db-active-breakpoint-face-colors (cons "#0d0d0d" "#81a2be"))
+ '(jdee-db-requested-breakpoint-face-colors (cons "#0d0d0d" "#b5bd68"))
+ '(jdee-db-spec-breakpoint-face-colors (cons "#0d0d0d" "#5a5b5a"))
  '(nrepl-message-colors
    (quote
     ("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3")))
+ '(objed-cursor-color "#cc6666")
  '(package-selected-packages
    (quote
-    (spacemacs-theme groovy treemacs-icons-dired treemacs-projectile treemacs treemacs-magit rainbow-delimiters iedit sr-speedbar yasnippet-snippets markdown-mode+ visual-regexp-steroids visual-regexp ace-window powerline f cider diminish cl-lib aggressive-indent-mode counsel ivy-hydra ivy flycheck-pos-tip git-timemachine hungry-delete solarized-theme zenburn-theme counsel-projectile magit-gitflow flycheck-clojure flycheck smart-mode-line-powerline-theme smart-mode-line ivy-rich use-package flx dracula-theme bm magit web-mode parinfer kibit-helper cloc ac-cider undo-tree smex projectile paxedit markdown-mode groovy-mode git-gutter company clojure-mode-extra-font-locking clj-refactor cider-eval-sexp-fu auto-highlight-symbol aggressive-indent adoc-mode)))
+    (clj-refactor inf-clojure yasnippet all-the-icons flycheck-clj-kondo spacemacs-theme groovy treemacs-icons-dired treemacs-projectile treemacs treemacs-magit rainbow-delimiters iedit sr-speedbar yasnippet-snippets markdown-mode+ visual-regexp-steroids visual-regexp ace-window powerline f diminish cl-lib aggressive-indent-mode counsel ivy-hydra ivy flycheck-pos-tip git-timemachine hungry-delete solarized-theme zenburn-theme counsel-projectile magit-gitflow flycheck-clojure flycheck smart-mode-line-powerline-theme smart-mode-line ivy-rich use-package flx dracula-theme bm magit web-mode parinfer kibit-helper cloc undo-tree smex projectile paxedit markdown-mode groovy-mode git-gutter company clojure-mode-extra-font-locking auto-highlight-symbol aggressive-indent adoc-mode)))
  '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
+ '(rustic-ansi-faces
+   ["#1d1f21" "#cc6666" "#b5bd68" "#f0c674" "#81a2be" "#c9b4cf" "#8abeb7" "#c5c8c6"])
  '(sml/mode-width
    (quote
     (if
-	(eq
-	 (powerline-current-separator)
-	 (quote arrow))
-	(quote right)
+        (eq
+         (powerline-current-separator)
+         (quote arrow))
+        (quote right)
       (quote full))))
  '(sml/pos-id-separator
    (quote
@@ -162,14 +166,14 @@
       (:propertize " " face powerline-active1)
       (:eval
        (propertize " "
-		   (quote display)
-		   (funcall
-		    (intern
-		     (format "powerline-%s-%s"
-			     (powerline-current-separator)
-			     (car powerline-default-separator-dir)))
-		    (quote powerline-active1)
-		    (quote powerline-active2))))
+                   (quote display)
+                   (funcall
+                    (intern
+                     (format "powerline-%s-%s"
+                             (powerline-current-separator)
+                             (car powerline-default-separator-dir)))
+                    (quote powerline-active1)
+                    (quote powerline-active2))))
       (:propertize " " face powerline-active2)))))
  '(sml/pos-minor-modes-separator
    (quote
@@ -178,14 +182,14 @@
       (:propertize " " face powerline-active1)
       (:eval
        (propertize " "
-		   (quote display)
-		   (funcall
-		    (intern
-		     (format "powerline-%s-%s"
-			     (powerline-current-separator)
-			     (cdr powerline-default-separator-dir)))
-		    (quote powerline-active1)
-		    (quote sml/global))))
+                   (quote display)
+                   (funcall
+                    (intern
+                     (format "powerline-%s-%s"
+                             (powerline-current-separator)
+                             (cdr powerline-default-separator-dir)))
+                    (quote powerline-active1)
+                    (quote sml/global))))
       (:propertize " " face sml/global)))))
  '(sml/pre-id-separator
    (quote
@@ -194,14 +198,14 @@
       (:propertize " " face sml/global)
       (:eval
        (propertize " "
-		   (quote display)
-		   (funcall
-		    (intern
-		     (format "powerline-%s-%s"
-			     (powerline-current-separator)
-			     (car powerline-default-separator-dir)))
-		    (quote sml/global)
-		    (quote powerline-active1))))
+                   (quote display)
+                   (funcall
+                    (intern
+                     (format "powerline-%s-%s"
+                             (powerline-current-separator)
+                             (car powerline-default-separator-dir)))
+                    (quote sml/global)
+                    (quote powerline-active1))))
       (:propertize " " face powerline-active1)))))
  '(sml/pre-minor-modes-separator
    (quote
@@ -210,14 +214,14 @@
       (:propertize " " face powerline-active2)
       (:eval
        (propertize " "
-		   (quote display)
-		   (funcall
-		    (intern
-		     (format "powerline-%s-%s"
-			     (powerline-current-separator)
-			     (cdr powerline-default-separator-dir)))
-		    (quote powerline-active2)
-		    (quote powerline-active1))))
+                   (quote display)
+                   (funcall
+                    (intern
+                     (format "powerline-%s-%s"
+                             (powerline-current-separator)
+                             (cdr powerline-default-separator-dir)))
+                    (quote powerline-active2)
+                    (quote powerline-active1))))
       (:propertize " " face powerline-active1)))))
  '(sml/pre-modes-separator (quote (propertize " " (quote face) (quote sml/modes))))
  '(sr-speedbar-right-side nil)
@@ -285,7 +289,7 @@
 
   ;; local variables for start and end of line
   (let ((bol (save-excursion (beginning-of-line) (point)))
-	eol)
+        eol)
     (save-excursion
 
       ;; don't use forward-line for this, because you would have
@@ -295,49 +299,24 @@
 
       ;; store the line and disable the recording of undo information
       (let ((line (buffer-substring bol eol))
-	    (buffer-undo-list t)
-	    (count arg))
-	;; insert the line arg times
-	(while (> count 0)
-	  (newline)         ;; because there is no newline in 'line'
-	  (insert line)
-	  (setq count (1- count))))
+            (buffer-undo-list t)
+            (count arg))
+        ;; insert the line arg times
+        (while (> count 0)
+          (newline)         ;; because there is no newline in 'line'
+          (insert line)
+          (setq count (1- count))))
 
 
       ;; create the undo information
       (setq buffer-undo-list (cons (cons eol (point)) buffer-undo-list))))
-					; end-of-let
+                                        ; end-of-let
 
   ;; put the point in the lowest line and return
   (next-line arg))
 
 (global-set-key (kbd "C-x C-d") 'duplicate-line)
 
-;;; CIDER stuff
-
-;; cider cljs nRepl conf
-(use-package cider
-  :ensure t
-  :defer t
-  :config (flycheck-clojure-setup))
-
-(setq cider-cljs-lein-repl
-      "(do (user/run)
-	   (user/browser-repl))")
-;; "(do (require 'figwheel-sidecar.repl-api)
-;;      (figwheel-sidecar.repl-api/start-figwheel!)
-;;      (figwheel-sidecar.repl-api/cljs-repl))"
-
-(use-package clj-refactor
-  :ensure t
-  :config
-  (defun my-clojure-mode-hook ()
-    (clj-refactor-mode 1)
-    (yas-minor-mode 1) ; for adding require/use/import statements
-    ;; This choice of keybinding leaves cider-macroexpand-1 unbound
-    (cljr-add-keybindings-with-prefix "C-c C-m"))
-  :hook
-  (clojure-mode . my-clojure-mode-hook))
 
 (use-package company
   :ensure t
@@ -349,28 +328,7 @@
   :config (global-git-gutter-mode +1))
 
 
-(add-hook 'clojure-mode-hook #'paredit-mode)
-(add-hook 'clojure-mode-hook #'paxedit-mode)
-(add-hook 'clojure-mode-hook #'aggressive-indent-mode)
-(add-hook 'clojure-mode-hook #'subword-mode)
-(add-hook 'cider-mode-hook #'eldoc-mode)
-
-
-(add-hook 'cider-repl-mode-hook #'paredit-mode)
-(add-hook 'cider-repl-mode-hook #'paxedit-mode)
-(add-hook 'cider-repl-mode-hook #'subword-mode)
-(add-hook 'cider-repl-mode-hook #'eldoc-mode)
-;;(add-hook 'cider-repl-mode-hook #'rainbow-delimiters-mode)  ;; does not work
 (global-set-key (kbd "TAB") #'company-indent-or-complete-common)
-(setq cider-overlays-use-font-lock t)
-(setq cider-font-lock-dynamically '(macro core function var))
-(setq clojure-align-forms-automatically t)
-(setq cider-prompt-save-file-on-load 'always-save)
-
-(setq cider-test-show-report-on-success t)
-(setq cider-repl-history-size 1000)
-(setq cider-repl-history-file ".cider-nrepl-history")
-(setq cider-prompt-for-symbol nil)
 
 (use-package clojure-mode-extra-font-locking
   :ensure t)
@@ -379,9 +337,9 @@
 (use-package auto-highlight-symbol
   :ensure t
   :config (progn
-	    (global-auto-highlight-symbol-mode t)
-	    (global-hl-line-mode)
-	    (auto-highlight-symbol-mode t)))
+            (global-auto-highlight-symbol-mode t)
+            (global-hl-line-mode)
+            (auto-highlight-symbol-mode t)))
 
 ;; undo tree
 (use-package undo-tree
@@ -395,10 +353,10 @@
 ;; disable the broken below package
 ;;(require 'cider-eval-sexp-fu)
 
-(use-package rainbow-delimiters
-  :ensure t
-  :hook
-  ((prog-mode cider-repl-mode) . rainbow-delimiters-mode))
+;; (use-package rainbow-delimiters
+;;   :ensure t
+;;   :hook
+;;   ((prog-mode cider-repl-mode) . rainbow-delimiters-mode))
 
 (use-package yasnippet
   :ensure t
@@ -407,19 +365,6 @@
 
 
 
-(defun my-clojure-mode-hook ()
-  (clj-refactor-mode 1)
-  (yas-minor-mode 1) ; for adding require/use/import statements
-  (yas-reload-all)
-  ;; This choice of keybinding leaves cider-macroexpand-1 unbound
-  (cljr-add-keybindings-with-prefix "C-c C-m"))
-
-(defun compile-and-run-main ()
-  (cider-load-buffer)
-  (cider-run))
-
-(add-hook 'clojure-mode-hook #'my-clojure-mode-hook)
-(global-set-key (quote [f9]) 'cider-eval-last-sexp)
 
 ;; (add-hook 'cider-mode-hook
 ;;	  '(lambda () (add-hook 'after-save-hook
@@ -427,21 +372,13 @@
 ;;				   (if (and (boundp 'cider-mode) cider-mode)
 ;;				       (cider-ns-refresh))))))
 
-(defun cider-namespace-refresh ()
-  (interactive)
-  (cider-interactive-eval
-   "(require 'clojure.tools.namespace.repl)
-   (clojure.tools.namespace.repl/refresh)"))
-
-(define-key clojure-mode-map (kbd "C-c C-r") 'cider-refresh)
-
 
 (use-package markdown-mode
   :ensure t
   :commands (markdown-mode gfm-mode)
   :mode (("README\\.md\\'" . gfm-mode)
-	 ("\\.md\\'" . markdown-mode)
-	 ("\\.markdown\\'" . markdown-mode))
+         ("\\.md\\'" . markdown-mode)
+         ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "multimarkdown"))
 
 (custom-set-faces
@@ -504,16 +441,16 @@
   :diminish ivy-mode
   :load-path "site-lisp/site-ivy/swiper"
   :bind (("C-x b" . ivy-switch-buffer)
-	 ("C-x B" . ivy-switch-buffer-other-window)
-	 ("M-H"   . ivy-resume))
+         ("C-x B" . ivy-switch-buffer-other-window)
+         ("M-H"   . ivy-resume))
   :commands ivy-mode
   :config
   (setq ivy-initial-inputs-alist nil
-	ivy-re-builders-alist '((t . ivy--regex-ignore-order))
-	magit-completing-read-function 'ivy-completing-read
-	projectile-completion-system 'ivy
-	ivy-use-virtual-buffers t
-	enable-recursive-minibuffers t)
+        ivy-re-builders-alist '((t . ivy--regex-ignore-order))
+        magit-completing-read-function 'ivy-completing-read
+        projectile-completion-system 'ivy
+        ivy-use-virtual-buffers t
+        enable-recursive-minibuffers t)
 
   (ivy-mode 1)
 
@@ -533,8 +470,8 @@
     :demand t
     :load-path "site-lisp/ivy/swiper"
     :bind (("C-s" . swiper)
-	   ("C-. C-s" . swiper)
-	   ("C-. C-r" . swiper))
+           ("C-. C-s" . swiper)
+           ("C-. C-r" . swiper))
     :commands swiper-from-isearch
     :init
     (bind-key "C-." #'swiper-from-isearch isearch-mode-map)
@@ -549,10 +486,10 @@
     :demand t
     :diminish counsel-mode
     :bind (("M-x"     . counsel-M-x)
-	   ("C-h f"   . counsel-describe-function)
-	   ("C-h v"   . counsel-describe-variable)
-	   ("C-h E l" . counsel-find-library)
-	   ("C-h E u" . counsel-unicode-char))
+           ("C-h f"   . counsel-describe-function)
+           ("C-h v"   . counsel-describe-variable)
+           ("C-h E l" . counsel-find-library)
+           ("C-h E u" . counsel-unicode-char))
     :commands counsel-minibuffer-history
     :init
     (define-key minibuffer-local-map (kbd "M-r")
@@ -563,22 +500,22 @@
 (use-package magit
   :ensure t
   :load-path ("site-lisp/site-git/magit/lisp"
-	      "lib/with-editor")
+              "lib/with-editor")
   :bind (("C-x g" . magit-status)
-	 ("C-x G" . magit-status-with-prefix))
+         ("C-x G" . magit-status-with-prefix))
   :preface
   (defun magit-monitor (&optional no-display)
     "Start git-monitor in the current directory."
     (interactive)
     (when (string-match "\\*magit: \\(.+\\)" (buffer-name))
       (let ((name (format "*git-monitor: %s*"
-			  (match-string 1 (buffer-name)))))
-	(or (get-buffer name)
-	    (let ((buf (get-buffer-create name)))
-	      (ignore-errors
-		(start-process "*git-monitor*" buf "git-monitor"
-			       "-d" (expand-file-name default-directory)))
-	      buf)))))
+                          (match-string 1 (buffer-name)))))
+        (or (get-buffer name)
+            (let ((buf (get-buffer-create name)))
+              (ignore-errors
+                (start-process "*git-monitor*" buf "git-monitor"
+                               "-d" (expand-file-name default-directory)))
+              buf)))))
 
   (defun magit-status-with-prefix ()
     (interactive)
@@ -590,14 +527,14 @@
   (defun eshell/git (&rest args)
     (cond
      ((or (null args)
-	  (and (string= (car args) "status") (null (cdr args))))
+          (and (string= (car args) "status") (null (cdr args))))
       (magit-status-internal default-directory))
      ((and (string= (car args) "log") (null (cdr args)))
       (magit-log "HEAD"))
      (t (throw 'eshell-replace-command
-	       (eshell-parse-command
-		"*git"
-		(eshell-stringify-list (eshell-flatten-list args)))))))
+               (eshell-parse-command
+                "*git"
+                (eshell-stringify-list (eshell-flatten-list args)))))))
 
   :init
   (add-hook 'magit-mode-hook 'hl-line-mode)
@@ -614,9 +551,9 @@
 
 
 (add-hook 'magit-log-edit-mode-hook
-	  #'(lambda ()
-	      (set-fill-column 72)
-	      (flyspell-mode 1)))
+          #'(lambda ()
+              (set-fill-column 72)
+              (flyspell-mode 1)))
 
 (add-hook 'magit-status-mode-hook #'(lambda () (magit-monitor t)))
 
@@ -625,64 +562,64 @@
 ;; Bookmarks
 
 (use-package bm
-	 :ensure t
-	 :demand t
+         :ensure t
+         :demand t
 
-	 :init
-	 ;; restore on load (even before you require bm)
-	 (setq bm-restore-repository-on-load t)
-
-
-	 :config
-	 ;; Allow cross-buffer 'next'
-	 (setq bm-cycle-all-buffers t)
-
-	 ;; where to store persistant files
-	 (setq bm-repository-file "~/.emacs.d/bm-repository")
-
-	 ;; save bookmarks
-	 (setq-default bm-buffer-persistence t)
-
-	 ;; Loading the repository from file when on start up.
-	 (add-hook' after-init-hook 'bm-repository-load)
-
-	 ;; Restoring bookmarks when on file find.
-	 (add-hook 'find-file-hooks 'bm-buffer-restore)
-
-	 ;; Saving bookmarks
-	 (add-hook 'kill-buffer-hook #'bm-buffer-save)
-
-	 ;; Saving the repository to file when on exit.
-	 ;; kill-buffer-hook is not called when Emacs is killed, so we
-	 ;; must save all bookmarks first.
-	 (add-hook 'kill-emacs-hook #'(lambda nil
-					  (bm-buffer-save-all)
-					  (bm-repository-save)))
-
-	 ;; The `after-save-hook' is not necessary to use to achieve persistence,
-	 ;; but it makes the bookmark data in repository more in sync with the file
-	 ;; state.
-	 (add-hook 'after-save-hook #'bm-buffer-save)
-
-	 ;; Restoring bookmarks
-	 (add-hook 'find-file-hooks   #'bm-buffer-restore)
-	 (add-hook 'after-revert-hook #'bm-buffer-restore)
-
-	 ;; The `after-revert-hook' is not necessary to use to achieve persistence,
-	 ;; but it makes the bookmark data in repository more in sync with the file
-	 ;; state. This hook might cause trouble when using packages
-	 ;; that automatically reverts the buffer (like vc after a check-in).
-	 ;; This can easily be avoided if the package provides a hook that is
-	 ;; called before the buffer is reverted (like `vc-before-checkin-hook').
-	 ;; Then new bookmarks can be saved before the buffer is reverted.
-	 ;; Make sure bookmarks is saved before check-in (and revert-buffer)
-	 (add-hook 'vc-before-checkin-hook #'bm-buffer-save)
+         :init
+         ;; restore on load (even before you require bm)
+         (setq bm-restore-repository-on-load t)
 
 
-	 :bind (("<f4>" . bm-next)
-		("S-<f4>" . bm-previous)
-		("C-<f4>" . bm-toggle))
-	 )
+         :config
+         ;; Allow cross-buffer 'next'
+         (setq bm-cycle-all-buffers t)
+
+         ;; where to store persistant files
+         (setq bm-repository-file "~/.emacs.d/bm-repository")
+
+         ;; save bookmarks
+         (setq-default bm-buffer-persistence t)
+
+         ;; Loading the repository from file when on start up.
+         (add-hook' after-init-hook 'bm-repository-load)
+
+         ;; Restoring bookmarks when on file find.
+         (add-hook 'find-file-hooks 'bm-buffer-restore)
+
+         ;; Saving bookmarks
+         (add-hook 'kill-buffer-hook #'bm-buffer-save)
+
+         ;; Saving the repository to file when on exit.
+         ;; kill-buffer-hook is not called when Emacs is killed, so we
+         ;; must save all bookmarks first.
+         (add-hook 'kill-emacs-hook #'(lambda nil
+                                          (bm-buffer-save-all)
+                                          (bm-repository-save)))
+
+         ;; The `after-save-hook' is not necessary to use to achieve persistence,
+         ;; but it makes the bookmark data in repository more in sync with the file
+         ;; state.
+         (add-hook 'after-save-hook #'bm-buffer-save)
+
+         ;; Restoring bookmarks
+         (add-hook 'find-file-hooks   #'bm-buffer-restore)
+         (add-hook 'after-revert-hook #'bm-buffer-restore)
+
+         ;; The `after-revert-hook' is not necessary to use to achieve persistence,
+         ;; but it makes the bookmark data in repository more in sync with the file
+         ;; state. This hook might cause trouble when using packages
+         ;; that automatically reverts the buffer (like vc after a check-in).
+         ;; This can easily be avoided if the package provides a hook that is
+         ;; called before the buffer is reverted (like `vc-before-checkin-hook').
+         ;; Then new bookmarks can be saved before the buffer is reverted.
+         ;; Make sure bookmarks is saved before check-in (and revert-buffer)
+         (add-hook 'vc-before-checkin-hook #'bm-buffer-save)
+
+
+         :bind (("<f4>" . bm-next)
+                ("S-<f4>" . bm-previous)
+                ("C-<f4>" . bm-toggle))
+         )
 
 ;; from Howard
 
@@ -737,11 +674,11 @@
  (use-package visual-regexp-steroids :ensure t)
 
  :bind (("C-c r" . vr/replace)
-	("C-c q" . vr/query-replace))
+        ("C-c q" . vr/query-replace))
 
  ;; if you use multiple-cursors, this is for you:
  :config (use-package  multiple-cursors
-	   :bind ("C-c m" . vr/mc-mark)))
+           :bind ("C-c m" . vr/mc-mark)))
 
 
 ;; delete whitespace
@@ -755,7 +692,8 @@
   :diminish
   :hook
   (prog-mode       . turn-on-eldoc-mode)
-  (cider-repl-mode . turn-on-eldoc-mode))
+                                        ;(cider-repl-mode . turn-on-eldoc-mode)
+  )
 
 ;; folding
 
@@ -863,39 +801,39 @@
   :config
   (progn
     (setq treemacs-collapse-dirs                 (if treemacs-python-executable 3 0)
-	  treemacs-deferred-git-apply-delay      0.5
-	  treemacs-display-in-side-window        t
-	  treemacs-eldoc-display                 t
-	  treemacs-file-event-delay              5000
-	  treemacs-file-extension-regex          treemacs-last-period-regex-value
-	  treemacs-file-follow-delay             0.2
-	  treemacs-follow-after-init             t
-	  treemacs-git-command-pipe              ""
-	  treemacs-goto-tag-strategy             'refetch-index
-	  treemacs-indentation                   2
-	  treemacs-indentation-string            " "
-	  treemacs-is-never-other-window         nil
-	  treemacs-max-git-entries               5000
-	  treemacs-missing-project-action        'ask
-	  treemacs-no-png-images                 nil
-	  treemacs-no-delete-other-windows       t
-	  treemacs-project-follow-cleanup        nil
-	  treemacs-persist-file                  (expand-file-name ".cache/treemacs-persist" user-emacs-directory)
-	  treemacs-position                      'left
-	  treemacs-recenter-distance             0.1
-	  treemacs-recenter-after-file-follow    nil
-	  treemacs-recenter-after-tag-follow     nil
-	  treemacs-recenter-after-project-jump   'always
-	  treemacs-recenter-after-project-expand 'on-distance
-	  treemacs-show-cursor                   nil
-	  treemacs-show-hidden-files             t
-	  treemacs-silent-filewatch              nil
-	  treemacs-silent-refresh                nil
-	  treemacs-sorting                       'alphabetic-desc
-	  treemacs-space-between-root-nodes      t
-	  treemacs-tag-follow-cleanup            t
-	  treemacs-tag-follow-delay              1.5
-	  treemacs-width                         35)
+          treemacs-deferred-git-apply-delay      0.5
+          treemacs-display-in-side-window        t
+          treemacs-eldoc-display                 t
+          treemacs-file-event-delay              5000
+          treemacs-file-extension-regex          treemacs-last-period-regex-value
+          treemacs-file-follow-delay             0.2
+          treemacs-follow-after-init             t
+          treemacs-git-command-pipe              ""
+          treemacs-goto-tag-strategy             'refetch-index
+          treemacs-indentation                   2
+          treemacs-indentation-string            " "
+          treemacs-is-never-other-window         nil
+          treemacs-max-git-entries               5000
+          treemacs-missing-project-action        'ask
+          treemacs-no-png-images                 nil
+          treemacs-no-delete-other-windows       t
+          treemacs-project-follow-cleanup        nil
+          treemacs-persist-file                  (expand-file-name ".cache/treemacs-persist" user-emacs-directory)
+          treemacs-position                      'left
+          treemacs-recenter-distance             0.1
+          treemacs-recenter-after-file-follow    nil
+          treemacs-recenter-after-tag-follow     nil
+          treemacs-recenter-after-project-jump   'always
+          treemacs-recenter-after-project-expand 'on-distance
+          treemacs-show-cursor                   nil
+          treemacs-show-hidden-files             t
+          treemacs-silent-filewatch              nil
+          treemacs-silent-refresh                nil
+          treemacs-sorting                       'alphabetic-asc
+          treemacs-space-between-root-nodes      t
+          treemacs-tag-follow-cleanup            t
+          treemacs-tag-follow-delay              1.5
+          treemacs-width                         35)
 
     ;; The default width and height of the icons is 22 pixels. If you are
     ;; using a Hi-DPI display, uncomment this to double the icon size.
@@ -905,19 +843,19 @@
     (treemacs-filewatch-mode t)
     (treemacs-fringe-indicator-mode t)
     (pcase (cons (not (null (executable-find "git")))
-		 (not (null treemacs-python-executable)))
+                 (not (null treemacs-python-executable)))
       (`(t . t)
        (treemacs-git-mode 'deferred))
       (`(t . _)
        (treemacs-git-mode 'simple))))
   :bind
   (:map global-map
-	("M-0"       . treemacs-select-window)
-	("C-x t 1"   . treemacs-delete-other-windows)
-	("C-x t t"   . treemacs)
-	("C-x t B"   . treemacs-bookmark)
-	("C-x t C-t" . treemacs-find-file)
-	("C-x t M-t" . treemacs-find-tag)))
+        ("M-0"       . treemacs-select-window)
+        ("C-x t 1"   . treemacs-delete-other-windows)
+        ("C-x t t"   . treemacs)
+        ("C-x t B"   . treemacs-bookmark)
+        ("C-x t C-t" . treemacs-find-file)
+        ("C-x t M-t" . treemacs-find-tag)))
 
 (use-package treemacs-projectile
   :after treemacs projectile
@@ -952,4 +890,11 @@
 
 (load "misc.el")
 
-(setq nrepl-log-messages t)
+(load "ui.el")
+
+(load "clojure.el")
+
+;; enable cider or inf-clojure, but not both
+(load "cider-cust.el")
+
+;;(load "inf-clj.el")
