@@ -4,8 +4,7 @@
 (use-package cider
   :ensure t
   :defer t
-  :config (flycheck-clojure-setup)
-  (setq cider-repl-history-file ".cider-nrepl.history"))
+  :config (setq cider-repl-history-file ".cider-nrepl.history"))
 
 (setq cider-cljs-lein-repl
       "(do (user/run)
