@@ -88,3 +88,12 @@
 
 ;; nrepl
 (setq nrepl-log-messages t)
+
+
+;; temp for bm
+(defun bm-remove-hook ()
+  "Workaround to umount broken bm hook"
+    (interactive)
+    (remove-hook 'kill-emacs-hook '(lambda nil
+                                  (bm-buffer-save-all)
+                                   (bm-repository-save))))
