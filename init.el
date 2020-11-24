@@ -147,7 +147,7 @@
  '(objed-cursor-color "#cc6666")
  '(package-selected-packages
    (quote
-    (clj-refactor inf-clojure yasnippet all-the-icons flycheck-clj-kondo spacemacs-theme groovy treemacs-icons-dired treemacs-projectile treemacs treemacs-magit rainbow-delimiters iedit sr-speedbar yasnippet-snippets markdown-mode+ visual-regexp-steroids visual-regexp ace-window powerline f diminish cl-lib aggressive-indent-mode counsel ivy-hydra ivy flycheck-pos-tip git-timemachine hungry-delete solarized-theme zenburn-theme counsel-projectile magit-gitflow flycheck-clojure flycheck smart-mode-line-powerline-theme smart-mode-line ivy-rich use-package flx dracula-theme bm magit web-mode parinfer kibit-helper cloc undo-tree smex projectile paxedit markdown-mode groovy-mode git-gutter company clojure-mode-extra-font-locking auto-highlight-symbol aggressive-indent adoc-mode)))
+    (company-prescient selectrum-prescient selectrum clj-refactor inf-clojure yasnippet all-the-icons flycheck-clj-kondo spacemacs-theme groovy treemacs-icons-dired treemacs-projectile treemacs treemacs-magit rainbow-delimiters iedit sr-speedbar yasnippet-snippets markdown-mode+ visual-regexp-steroids visual-regexp ace-window powerline f diminish cl-lib aggressive-indent-mode counsel ivy-hydra ivy flycheck-pos-tip git-timemachine hungry-delete solarized-theme zenburn-theme counsel-projectile magit-gitflow flycheck-clojure flycheck smart-mode-line-powerline-theme smart-mode-line ivy-rich use-package flx dracula-theme bm magit web-mode parinfer kibit-helper cloc undo-tree smex projectile paxedit markdown-mode groovy-mode git-gutter company clojure-mode-extra-font-locking auto-highlight-symbol aggressive-indent adoc-mode)))
  '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
  '(rustic-ansi-faces
    ["#1d1f21" "#cc6666" "#b5bd68" "#f0c674" "#81a2be" "#c9b4cf" "#8abeb7" "#c5c8c6"])
@@ -434,71 +434,6 @@
 
 
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
-
-
-;;; Ivy
-
-(use-package ivy
-  :ensure t
-  :demand t
-  :diminish ivy-mode
-  :load-path "site-lisp/site-ivy/swiper"
-  :bind (("C-x b" . ivy-switch-buffer)
-         ("C-x B" . ivy-switch-buffer-other-window)
-         ("M-H"   . ivy-resume))
-  :commands ivy-mode
-  :config
-  (setq ivy-initial-inputs-alist nil
-        ivy-re-builders-alist '((t . ivy--regex-ignore-order))
-        magit-completing-read-function 'ivy-completing-read
-        projectile-completion-system 'ivy
-        ivy-use-virtual-buffers t
-        enable-recursive-minibuffers t)
-
-  (ivy-mode 1)
-
-  (bind-key "C-r" #'ivy-previous-line-or-history ivy-minibuffer-map)
-  (bind-key "M-r" #'ivy-reverse-i-search ivy-minibuffer-map)
-
-  (use-package ivy-hydra
-    :ensure t)
-
-  (use-package ivy-rich
-    :ensure t
-    :after (:all ivy counsel)
-    :init (setq ivy-rich-parse-remote-file-path t)
-    :config (ivy-rich-mode 1))
-
-    (use-package swiper
-    :demand t
-    :load-path "site-lisp/ivy/swiper"
-    :bind (("C-s" . swiper)
-           ("C-. C-s" . swiper)
-           ("C-. C-r" . swiper))
-    :commands swiper-from-isearch
-    :init
-    (bind-key "C-." #'swiper-from-isearch isearch-mode-map)
-    :config
-    (bind-key "M-y" #'yank swiper-map)
-    (bind-key "M-%" #'swiper-query-replace swiper-map)
-    (bind-key "M-h" #'swiper-avy swiper-map)
-    (bind-key "M-c" #'swiper-mc swiper-map))
-
-  (use-package counsel
-    :ensure t
-    :demand t
-    :diminish counsel-mode
-    :bind (("M-x"     . counsel-M-x)
-           ("C-h f"   . counsel-describe-function)
-           ("C-h v"   . counsel-describe-variable)
-           ("C-h E l" . counsel-find-library)
-           ("C-h E u" . counsel-unicode-char))
-    :commands counsel-minibuffer-history
-    :init
-    (define-key minibuffer-local-map (kbd "M-r")
-      'counsel-minibuffer-history))
-  :config
-  (counsel-mode 1))
 
 (use-package magit
   :ensure t
@@ -861,6 +796,24 @@
 
 (use-package hideshow
   :hook ((prog-mode . hs-minor-mode)))
+
+(use-package selectrum
+  :ensure t
+  :config
+  (use-package selectrum-prescient
+    :ensure t)
+  (use-package company-prescient
+    :ensure t)
+  (selectrum-mode +1)
+
+  ;; to make sorting and filtering more intelligent
+  (selectrum-prescient-mode +1)
+  (company-prescient-mode +1)
+
+  ;; to save your command history on disk, so the sorting gets more
+  ;; intelligent over time
+  (prescient-persist-mode +1))
+
 
 ;; Fun
 
