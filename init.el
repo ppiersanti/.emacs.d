@@ -151,6 +151,9 @@
  '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
  '(rustic-ansi-faces
    ["#1d1f21" "#cc6666" "#b5bd68" "#f0c674" "#81a2be" "#c9b4cf" "#8abeb7" "#c5c8c6"])
+ '(safe-local-variable-values
+   (quote
+    ((cider-repl-history-file . ".cider-nrepl.history"))))
  '(sml/mode-width
    (quote
     (if
