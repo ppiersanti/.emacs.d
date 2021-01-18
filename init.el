@@ -40,7 +40,6 @@
 ;; themes
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (add-to-list 'load-path "~/.emacs.d/themes")
-(load-theme 'tomorrow-night-bright t)
 
 
 
@@ -112,17 +111,35 @@
    ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
  '(company-quickhelp-color-background "#4F4F4F")
  '(company-quickhelp-color-foreground "#DCDCCC")
- '(compilation-message-face (quote default))
+ '(compilation-message-face 'default)
  '(cua-global-mark-cursor-color "#2aa198")
  '(cua-mode t nil (cua-base))
- '(custom-enabled-themes (quote (tomorrow-night-bright)))
+ '(cua-overwrite-cursor-color "#e5c06d")
+ '(cua-read-only-cursor-color "#8ac6f2")
+ '(custom-enabled-themes '(tomorrow-night-bright))
  '(custom-safe-themes
-   (quote
-    ("99f33ab65f95eb115331717f17ec4d319a939ad7d77b1949498e60217233db0a" "bab3fe9d9a4195294b511bc15f9593b68c0584ee2c901cc0ea63450874634049" "2cdc13ef8c76a22daa0f46370011f54e79bae00d5736340a5ddfe656a767fddf" "2f1518e906a8b60fac943d02ad415f1d8b3933a5a7f75e307e6e9a26ef5bf570" "79278310dd6cacf2d2f491063c4ab8b129fee2a498e4c25912ddaa6c3c5b621e" "e1ef2d5b8091f4953fe17b4ca3dd143d476c106e221d92ded38614266cea3c8b" "7a994c16aa550678846e82edc8c9d6a7d39cc6564baaaacc305a3fdc0bd8725f" "730a87ed3dc2bf318f3ea3626ce21fb054cd3a1471dcd59c81a4071df02cb601" "93ed23c504b202cf96ee591138b0012c295338f38046a1f3c14522d4a64d7308" "71e5acf6053215f553036482f3340a5445aee364fb2e292c70d9175fb0cc8af7" "d74c5485d42ca4b7f3092e50db687600d0e16006d8fa335c69cf4f379dbd0eee" "be9645aaa8c11f76a10bcf36aaf83f54f4587ced1b9b679b55639c87404e2499" "9b272154fb77a926f52f2756ed5872877ad8d73d018a426d44c6083d1ed972b1" "632694fd8a835e85bcc8b7bb5c1df1a0164689bc6009864faed38a9142b97057" "a92e9da0fab90cbec4af4a2035602208cebf3d071ea547157b2bfc5d9bd4d48d" "3d3807f1070bb91a68d6638a708ee09e63c0825ad21809c87138e676a60bda5d" "912cac216b96560654f4f15a3a4d8ba47d9c604cbc3b04801e465fb67a0234f0" "d71aabbbd692b54b6263bfe016607f93553ea214bc1435d17de98894a5c3a086" "9b01a258b57067426cc3c8155330b0381ae0d8dd41d5345b5eddac69f40d409b" "fe94e2e42ccaa9714dd0f83a5aa1efeef819e22c5774115a9984293af609fce7" "bc836bf29eab22d7e5b4c142d201bcce351806b7c1f94955ccafab8ce5b20208" "d0fa4334234e97ece3d72d86e39a574f8256b4a8699a1fb5390c402892a1c024" "76c5b2592c62f6b48923c00f97f74bcb7ddb741618283bdb2be35f3c0e1030e3" "7f1263c969f04a8e58f9441f4ba4d7fb1302243355cb9faecb55aec878a06ee9" "1157a4055504672be1df1232bed784ba575c60ab44d8e6c7b3800ae76b42f8bd" "52588047a0fe3727e3cd8a90e76d7f078c9bd62c0b246324e557dfa5112e0d0c" "cf08ae4c26cacce2eebff39d129ea0a21c9d7bf70ea9b945588c1c66392578d1" "5ee12d8250b0952deefc88814cf0672327d7ee70b16344372db9460e9a0e3ffc" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "2749f19d8f104565184ff2217e10152e9e3cbe32a130dec1a51b9e0fed82a4b1" "cc64e1b1faaf38d66ee881d051de86560f339c791d9c497e7930897ce1afa201" "5db27426ade741abaf25f5347abe92b1d505adef7c974d2ab2648a664d14f867" "84d2f9eeb3f82d619ca4bfffe5f157282f4779732f48a5ac1484d94d5ff5b279" "a7051d761a713aaf5b893c90eaba27463c791cd75d7257d3a8e66b0c8c346e77" "041939941dbf5df4516351b72d603230f774fcf79babe3b480cfc6c050fb3549" "2ec562753a7cce26ab21fb6de28b77c57eaaa118d79cac8a19640239357a5f11" "b9e9ba5aeedcc5ba8be99f1cc9301f6679912910ff92fdf7980929c2fc83ab4d" "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" "47afd772d3e59ea0a509c73e49547c5b19185d8fb640ab2bede9b54324d55fc5" "c74e83f8aa4c78a121b52146eadb792c9facc5b1f02c917e3dbb454fca931223" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" "2cbe4065741d4e20c0d872003315b37939d0ed943a91e6cf4004047dc7df0118" default)))
+   '("51ec7bfa54adf5fff5d466248ea6431097f5a18224788d0bd7eb1257a4f7b773" "13a8eaddb003fd0d561096e11e1a91b029d3c9d64554f8e897b2513dbf14b277" "0fffa9669425ff140ff2ae8568c7719705ef33b7a927a0ba7c5e2ffcfac09b75" "c433c87bd4b64b8ba9890e8ed64597ea0f8eb0396f4c9a9e01bd20a04d15d358" "00445e6f15d31e9afaa23ed0d765850e9cd5e929be5e8e63b114a3346236c44c" "285d1bf306091644fb49993341e0ad8bafe57130d9981b680c1dbd974475c5c7" "830877f4aab227556548dc0a28bf395d0abe0e3a0ab95455731c9ea5ab5fe4e1" "7f1d414afda803f3244c6fb4c2c64bea44dac040ed3731ec9d75275b9e831fe5" "2809bcb77ad21312897b541134981282dc455ccd7c14d74cc333b6e549b824f3" "d88049c628f3a8a92f9e46982d3e891867e4991de2b3a714f29f9f5eb91638c1" "99f33ab65f95eb115331717f17ec4d319a939ad7d77b1949498e60217233db0a" "bab3fe9d9a4195294b511bc15f9593b68c0584ee2c901cc0ea63450874634049" "2cdc13ef8c76a22daa0f46370011f54e79bae00d5736340a5ddfe656a767fddf" "2f1518e906a8b60fac943d02ad415f1d8b3933a5a7f75e307e6e9a26ef5bf570" "79278310dd6cacf2d2f491063c4ab8b129fee2a498e4c25912ddaa6c3c5b621e" "e1ef2d5b8091f4953fe17b4ca3dd143d476c106e221d92ded38614266cea3c8b" "7a994c16aa550678846e82edc8c9d6a7d39cc6564baaaacc305a3fdc0bd8725f" "730a87ed3dc2bf318f3ea3626ce21fb054cd3a1471dcd59c81a4071df02cb601" "93ed23c504b202cf96ee591138b0012c295338f38046a1f3c14522d4a64d7308" "71e5acf6053215f553036482f3340a5445aee364fb2e292c70d9175fb0cc8af7" "d74c5485d42ca4b7f3092e50db687600d0e16006d8fa335c69cf4f379dbd0eee" "be9645aaa8c11f76a10bcf36aaf83f54f4587ced1b9b679b55639c87404e2499" "9b272154fb77a926f52f2756ed5872877ad8d73d018a426d44c6083d1ed972b1" "632694fd8a835e85bcc8b7bb5c1df1a0164689bc6009864faed38a9142b97057" "a92e9da0fab90cbec4af4a2035602208cebf3d071ea547157b2bfc5d9bd4d48d" "3d3807f1070bb91a68d6638a708ee09e63c0825ad21809c87138e676a60bda5d" "912cac216b96560654f4f15a3a4d8ba47d9c604cbc3b04801e465fb67a0234f0" "d71aabbbd692b54b6263bfe016607f93553ea214bc1435d17de98894a5c3a086" "9b01a258b57067426cc3c8155330b0381ae0d8dd41d5345b5eddac69f40d409b" "fe94e2e42ccaa9714dd0f83a5aa1efeef819e22c5774115a9984293af609fce7" "bc836bf29eab22d7e5b4c142d201bcce351806b7c1f94955ccafab8ce5b20208" "d0fa4334234e97ece3d72d86e39a574f8256b4a8699a1fb5390c402892a1c024" "76c5b2592c62f6b48923c00f97f74bcb7ddb741618283bdb2be35f3c0e1030e3" "7f1263c969f04a8e58f9441f4ba4d7fb1302243355cb9faecb55aec878a06ee9" "1157a4055504672be1df1232bed784ba575c60ab44d8e6c7b3800ae76b42f8bd" "52588047a0fe3727e3cd8a90e76d7f078c9bd62c0b246324e557dfa5112e0d0c" "cf08ae4c26cacce2eebff39d129ea0a21c9d7bf70ea9b945588c1c66392578d1" "5ee12d8250b0952deefc88814cf0672327d7ee70b16344372db9460e9a0e3ffc" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "2749f19d8f104565184ff2217e10152e9e3cbe32a130dec1a51b9e0fed82a4b1" "cc64e1b1faaf38d66ee881d051de86560f339c791d9c497e7930897ce1afa201" "5db27426ade741abaf25f5347abe92b1d505adef7c974d2ab2648a664d14f867" "84d2f9eeb3f82d619ca4bfffe5f157282f4779732f48a5ac1484d94d5ff5b279" "a7051d761a713aaf5b893c90eaba27463c791cd75d7257d3a8e66b0c8c346e77" "041939941dbf5df4516351b72d603230f774fcf79babe3b480cfc6c050fb3549" "2ec562753a7cce26ab21fb6de28b77c57eaaa118d79cac8a19640239357a5f11" "b9e9ba5aeedcc5ba8be99f1cc9301f6679912910ff92fdf7980929c2fc83ab4d" "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" "47afd772d3e59ea0a509c73e49547c5b19185d8fb640ab2bede9b54324d55fc5" "c74e83f8aa4c78a121b52146eadb792c9facc5b1f02c917e3dbb454fca931223" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" "2cbe4065741d4e20c0d872003315b37939d0ed943a91e6cf4004047dc7df0118" default))
  '(fci-rule-color "#14151E")
+ '(highlight-changes-colors '("#e5786d" "#834c98"))
+ '(highlight-symbol-colors
+   '("#551b4b293a05" "#3f214d7540e0" "#5a1a48ea46fe" "#3fbe327642ee" "#42724c8355d4" "#536946893a1a" "#46c448dd5357"))
+ '(highlight-symbol-foreground-color "#999791")
+ '(highlight-tail-colors
+   '(("#2f2f2d" . 0)
+     ("#3d454c" . 20)
+     ("#3a463b" . 30)
+     ("#40424a" . 50)
+     ("#4c4436" . 60)
+     ("#4a4136" . 70)
+     ("#4c3935" . 85)
+     ("#2f2f2d" . 100)))
+ '(hl-bg-colors
+   '("#4c4436" "#4a4136" "#4f4340" "#4c3935" "#3b313d" "#40424a" "#3a463b" "#3d454c"))
+ '(hl-fg-colors
+   '("#2a2929" "#2a2929" "#2a2929" "#2a2929" "#2a2929" "#2a2929" "#2a2929" "#2a2929"))
+ '(hl-paren-colors '("#7ec98f" "#e5c06d" "#a4b5e6" "#834c98" "#8ac6f2"))
  '(hl-todo-keyword-faces
-   (quote
-    (("TODO" . "#dc752f")
+   '(("TODO" . "#dc752f")
      ("NEXT" . "#dc752f")
      ("THEM" . "#2aa198")
      ("PROG" . "#268bd2")
@@ -136,105 +153,86 @@
      ("TEMP" . "#875f00")
      ("FIXME" . "#dc752f")
      ("XXX+" . "#dc752f")
-     ("\\?\\?\\?+" . "#dc752f"))))
+     ("\\?\\?\\?+" . "#dc752f")))
  '(inhibit-startup-screen t)
  '(jdee-db-active-breakpoint-face-colors (cons "#0d0d0d" "#81a2be"))
  '(jdee-db-requested-breakpoint-face-colors (cons "#0d0d0d" "#b5bd68"))
  '(jdee-db-spec-breakpoint-face-colors (cons "#0d0d0d" "#5a5b5a"))
+ '(lsp-ui-doc-border "#999791")
  '(nrepl-message-colors
-   (quote
-    ("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3")))
+   '("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3"))
  '(objed-cursor-color "#cc6666")
  '(package-selected-packages
-   (quote
-    (company-prescient selectrum-prescient selectrum clj-refactor inf-clojure yasnippet all-the-icons flycheck-clj-kondo spacemacs-theme groovy treemacs-icons-dired treemacs-projectile treemacs treemacs-magit rainbow-delimiters iedit sr-speedbar yasnippet-snippets markdown-mode+ visual-regexp-steroids visual-regexp ace-window powerline f diminish cl-lib aggressive-indent-mode counsel ivy-hydra ivy flycheck-pos-tip git-timemachine hungry-delete solarized-theme zenburn-theme counsel-projectile magit-gitflow flycheck-clojure flycheck smart-mode-line-powerline-theme smart-mode-line ivy-rich use-package flx dracula-theme bm magit web-mode parinfer kibit-helper cloc undo-tree smex projectile paxedit markdown-mode groovy-mode git-gutter company clojure-mode-extra-font-locking auto-highlight-symbol aggressive-indent adoc-mode)))
- '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
+   '(ctrlf company-prescient selectrum-prescient selectrum clj-refactor inf-clojure yasnippet all-the-icons flycheck-clj-kondo spacemacs-theme groovy treemacs-icons-dired treemacs-projectile treemacs treemacs-magit rainbow-delimiters iedit sr-speedbar yasnippet-snippets markdown-mode+ visual-regexp-steroids visual-regexp ace-window powerline f diminish cl-lib aggressive-indent-mode counsel ivy-hydra ivy flycheck-pos-tip git-timemachine hungry-delete solarized-theme zenburn-theme counsel-projectile magit-gitflow flycheck-clojure flycheck smart-mode-line-powerline-theme smart-mode-line ivy-rich use-package flx dracula-theme bm magit web-mode parinfer kibit-helper cloc undo-tree smex projectile paxedit markdown-mode groovy-mode git-gutter company clojure-mode-extra-font-locking auto-highlight-symbol aggressive-indent adoc-mode))
+ '(pdf-view-midnight-colors '("#DCDCCC" . "#383838"))
+ '(pos-tip-background-color "#2f2f2d")
+ '(pos-tip-foreground-color "#999791")
  '(rustic-ansi-faces
    ["#1d1f21" "#cc6666" "#b5bd68" "#f0c674" "#81a2be" "#c9b4cf" "#8abeb7" "#c5c8c6"])
- '(safe-local-variable-values
-   (quote
-    ((cider-repl-history-file . ".cider-nrepl.history"))))
+ '(safe-local-variable-values '((cider-repl-history-file . ".cider-nrepl.history")))
+ '(smartrep-mode-line-active-bg (solarized-color-blend "#8ac6f2" "#2f2f2d" 0.2))
  '(sml/mode-width
-   (quote
-    (if
+   '(if
         (eq
          (powerline-current-separator)
-         (quote arrow))
-        (quote right)
-      (quote full))))
+         'arrow)
+        'right 'full))
  '(sml/pos-id-separator
-   (quote
-    (quote
-     (""
+   ''(""
       (:propertize " " face powerline-active1)
       (:eval
-       (propertize " "
-                   (quote display)
+       (propertize " " 'display
                    (funcall
                     (intern
                      (format "powerline-%s-%s"
                              (powerline-current-separator)
                              (car powerline-default-separator-dir)))
-                    (quote powerline-active1)
-                    (quote powerline-active2))))
-      (:propertize " " face powerline-active2)))))
+                    'powerline-active1 'powerline-active2)))
+      (:propertize " " face powerline-active2)))
  '(sml/pos-minor-modes-separator
-   (quote
-    (quote
-     (""
+   ''(""
       (:propertize " " face powerline-active1)
       (:eval
-       (propertize " "
-                   (quote display)
+       (propertize " " 'display
                    (funcall
                     (intern
                      (format "powerline-%s-%s"
                              (powerline-current-separator)
                              (cdr powerline-default-separator-dir)))
-                    (quote powerline-active1)
-                    (quote sml/global))))
-      (:propertize " " face sml/global)))))
+                    'powerline-active1 'sml/global)))
+      (:propertize " " face sml/global)))
  '(sml/pre-id-separator
-   (quote
-    (quote
-     (""
+   ''(""
       (:propertize " " face sml/global)
       (:eval
-       (propertize " "
-                   (quote display)
+       (propertize " " 'display
                    (funcall
                     (intern
                      (format "powerline-%s-%s"
                              (powerline-current-separator)
                              (car powerline-default-separator-dir)))
-                    (quote sml/global)
-                    (quote powerline-active1))))
-      (:propertize " " face powerline-active1)))))
+                    'sml/global 'powerline-active1)))
+      (:propertize " " face powerline-active1)))
  '(sml/pre-minor-modes-separator
-   (quote
-    (quote
-     (""
+   ''(""
       (:propertize " " face powerline-active2)
       (:eval
-       (propertize " "
-                   (quote display)
+       (propertize " " 'display
                    (funcall
                     (intern
                      (format "powerline-%s-%s"
                              (powerline-current-separator)
                              (cdr powerline-default-separator-dir)))
-                    (quote powerline-active2)
-                    (quote powerline-active1))))
-      (:propertize " " face powerline-active1)))))
- '(sml/pre-modes-separator (quote (propertize " " (quote face) (quote sml/modes))))
+                    'powerline-active2 'powerline-active1)))
+      (:propertize " " face powerline-active1)))
+ '(sml/pre-modes-separator '(propertize " " 'face 'sml/modes))
  '(sr-speedbar-right-side nil)
  '(term-default-bg-color "#fdf6e3")
  '(term-default-fg-color "#657b83")
  '(vc-annotate-background nil)
  '(vc-annotate-background-mode nil)
  '(vc-annotate-color-map
-   (quote
-    ((20 . "#d54e53")
+   '((20 . "#d54e53")
      (40 . "goldenrod")
      (60 . "#e7c547")
      (80 . "DarkOliveGreen3")
@@ -251,11 +249,10 @@
      (300 . "#d54e53")
      (320 . "goldenrod")
      (340 . "#e7c547")
-     (360 . "DarkOliveGreen3"))))
+     (360 . "DarkOliveGreen3")))
  '(vc-annotate-very-old-color nil)
  '(weechat-color-list
-   (quote
-    (unspecified "#fdf6e3" "#eee8d5" "#990A1B" "#dc322f" "#546E00" "#859900" "#7B6000" "#b58900" "#00629D" "#268bd2" "#93115C" "#d33682" "#00736F" "#2aa198" "#657b83" "#839496")))
+   '(unspecified "#fdf6e3" "#eee8d5" "#990A1B" "#dc322f" "#546E00" "#859900" "#7B6000" "#b58900" "#00629D" "#268bd2" "#93115C" "#d33682" "#00736F" "#2aa198" "#657b83" "#839496"))
  '(xterm-color-names
    ["#eee8d5" "#dc322f" "#859900" "#b58900" "#268bd2" "#d33682" "#2aa198" "#073642"])
  '(xterm-color-names-bright
@@ -814,6 +811,17 @@
   ;; intelligent over time
   (prescient-persist-mode +1))
 
+(use-package ctrlf
+  :ensure t
+  :init (ctrlf-mode +1)
+  :bind
+  (:map ctrlf--keymap
+   ("M-S-s _" . ctrlf-forward-symbol)
+    ("M-S-s ." . ctrlf-forward-symbol-at-point)
+    ("M-S-s o" . ctrlf-occur)
+    ("M-S-s c" . ctrlf-toggle-case-fold-search)
+    ("M-S-s r" . ctrlf-toggle-regexp)
+    ("M-S-s s" . ctrlf-change-search-style)))
 
 ;; Fun
 
